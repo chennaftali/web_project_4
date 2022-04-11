@@ -1,0 +1,16 @@
+.footer{
+    color: #545454;
+    padding-top: 68px;
+    padding-bottom: 60px;
+    border: solid 2px red;
+}
+.footer__copyrights{
+    max-width: 318px;
+    border-radius: nullpx;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
