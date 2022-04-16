@@ -29,20 +29,21 @@
             alt="Jacques Cousteau img"/>  
          <div class="profile__info">
              <h1 class="profile__name">Jacques Cousteau</h1>
-             <p class="profile__explorer">Explorer</p>
              <button class="profile__edit-button" type="button" aria-label="edit">
               <img class="profile__edit" src="./images/Edit Button.svg" alt="Edit Button img">
              </button>
+             <p class="profile__explorer">Explorer</p>
+
          </div>
          <button class="profile__add-button" type="button" aria-label="add">
-         <img class="profile__add-button" src="./images/Add Button.svg" alt="add Button img">
+         <img class="profile__add-img" src="./images/Add Button.svg" alt="add Button img">
         </button>
         </section>
             <section class="element" id="element">
                 <ul class="element__list">
                   <li class="element__list-item">
                     <img
-                      src="./images/element__1.jpg"
+                      src="./images/element__1.png"
                       alt="Yosemite Valley"
                       class="element__img"
                     />
@@ -134,15 +135,16 @@
                 <form class="popup__form" name="popup__form">
                     <h3 class="popup__header">Edit profile</h3>
                     <div class="popup__input">
-                        <input class="popup__input popup__input_type_name"
+                        <input class="popup__content popup__content_type_name"
                          placeholder="name" name="name" type="text">
-                        <input class="popup__input popup__input_type_about-me"
+                        <input class="popup__content popup__content_type_about-me"
                          placeholder="name" name="about-me" type="text">
                          <button class="popup__save" type="submit">save</button>
                     </div>
                 </form>
             </div>
         </div>
+        <script src="./script/index.js"></script>
 </body>
 </html>
 
