@@ -2,6 +2,8 @@
 
 @import "../vendor/fonts/fonts.css";
 
+@import "../vendor/normalize.css";
+
 @import "../blocks/page.css";
 
 @import "../blocks/footer.css";
@@ -13,3 +15,4 @@
 @import "../blocks/element.css";
 
 @import "../blocks/popup.css";
+

@@ -81,6 +81,11 @@
     .profile__info{
         display: flex;
         flex-direction: column;
+        align-content: center;
+        padding: 0;
+    }
+    .profile__name{
+        font-size: 22px;
     }
     .profile__explorer{
         align-self: center;
@@ -91,11 +96,25 @@
     .profile__add-button{
         align-self: center;
         padding: 0;
+        max-width: 150px;
     }
     .profile__add-img{
         align-self: center;
     }
   }
+  @media screen and (max-width: 500px) {
+    .popup__form {
+        max-width: 290px;
+      }
+      .popup__close {
+        top: -35px;
+        right: 0;
+      }
+      /*.popoup__close-icon {
+        width: 19px;
+      }*/
+  }
+
 @media screen and (max-width: 320px) {
     .profile{
     padding-top: 42px; 

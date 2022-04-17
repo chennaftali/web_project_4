@@ -32,6 +32,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    color: #000;
 }
 .element__text{
     display: flex;
@@ -55,6 +56,7 @@
 .element__like_active{
     background-image: url(../images/Union.svg);
     background-color: transparent;
+    border: none;
 }
 @media screen and (max-width: 320px) {
     .element__list{
@@ -63,5 +65,12 @@
         padding-left: 19px;
         padding-top: 36px;
         max-width: 282px;
+    }
+    .element__list-item{
+        max-width: 100%;
+
+    }
+    .element__text{
+        padding-left: 21px;
     }
 }

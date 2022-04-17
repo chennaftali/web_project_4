@@ -98,7 +98,22 @@
     cursor: pointer;
 }
 @media screen and (max-width: 320px) {
-    .popup{
-
+    .popup__form{
+        max-width: 282px;
+        box-sizing: border-box;
+    }
+    .popup__header{
+        font-size: 18px;
+        line-height: 22px;
+        padding: 25px 22px 0 22px;
+    }
+    .popup__input{
+        padding: 76px 22px 25px 22px;
+    }
+    .popup__container{
+        padding-top: 123px;
+    }
+    .popup__close{
+        top: -31px;
     }
 }
