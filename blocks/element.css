@@ -46,7 +46,9 @@
     border: none;
     height: 19px;
     padding: 0;
+    align-self: flex-end;
     padding-right: 30px;
+    background-color: transparent;
 }
 .element__like:hover{
     opacity: 0.5;
