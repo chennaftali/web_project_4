@@ -138,7 +138,10 @@
   }
   .popup__close {
     top: 70px;
-    right: 18px;
-    width: 18px;
+    height: 26px;
+    width: 26px;
+  }
+  .popup__close-img{
+      width: 26px;
   }
 }
