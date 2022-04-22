@@ -59,8 +59,6 @@
 }
 .element__like_active {
   background-image: url(../images/Union.svg);
-  background-color: transparent;
-  border: none;
 }
 @media screen and (max-width: 320px) {
   .element__list {
