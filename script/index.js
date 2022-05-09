@@ -66,7 +66,7 @@ const previewImageTitle = document.querySelector(".popup__header-img");
 
 /////////////////Function/////////////////////
 
-function openPopup() {
+function openPopup(popup) {
   popup.classList.add("popup_open");
 }
 
@@ -76,7 +76,7 @@ function openEditProfilePopup() {
   openPopup(editProfilePopup);
 }
 
-function closePopup() {
+function closePopup(popup) {
   popup.classList.remove("popup_open");
 }
 
@@ -148,7 +148,7 @@ formAdd.addEventListener("submit", function(event){
     event.preventDefault();
     const card = {
         name: addTitlleInput.value,
-        inke: addImageInput.value,
+        linke: addImageInput.value,
     };
     renderCard(card);
     closePopup(addCardPopup);
