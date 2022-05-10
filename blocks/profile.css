@@ -29,7 +29,6 @@
   margin: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
 }
 .profile__edit-button {
@@ -56,7 +55,6 @@
   max-width: 150px;
   height: 50px;
   border: 2px solid #ffffff;
-  border-radius: 2px;
   margin-left: auto;
 }
 .profile__add-button:hover {
@@ -157,8 +155,6 @@
   .profile__add-button {
     max-width: 100%;
     align-items: center;
-    max-width: none;
-    max-width: max-content;
     padding-left: 133px;
     padding-right: 133px;
   }
