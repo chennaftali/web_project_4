@@ -80,7 +80,7 @@ function closePopup(popup) {
   popup.classList.remove("popup_open");
 }
 
-function savePopup(event) {
+function saveProfilePopup(event) {
   closePopup(editProfilePopup);
   event.preventDefault();
   profileName.textContent = inputName.value;
@@ -134,7 +134,7 @@ closeImagePopup.addEventListener("click", () => {
   closePopup(imagePopup);
 });
 
-formProfile.addEventListener("submit", savePopup);
+formProfile.addEventListener("submit", saveProfilePopup);
 
 addCardButton.addEventListener("click", () => {
   openPopup(addCardPopup);
@@ -148,7 +148,7 @@ formAdd.addEventListener("submit", function (event) {
   event.preventDefault();
   const card = {
     name: addTitleInput.value,
-    linke: addImageInput.value,
+    link: addImageInput.value,
   };
   renderCard(card);
   closePopup(addCardPopup);
