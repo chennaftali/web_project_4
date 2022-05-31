@@ -120,6 +120,10 @@
   opacity: 0.8;
   cursor: pointer;
 }
+.popup__button_disabled {
+  background-color: #E5E5E5;
+  color: #000;
+}
 .popup__container_type_image-preview {
   background-color: transparent;
   flex-direction: column;
@@ -137,6 +141,7 @@
   margin-top: 10px;
   margin-bottom: 0;
 }
+
 @media screen and (max-width: 500px) {
   .popup__form {
     max-width: 282px;

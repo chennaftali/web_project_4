@@ -132,7 +132,13 @@ const renderCard = (card) => {
 initialCards.forEach(renderCard);
 ///////////////Event Listeners////////////////
 
-openProfilePopupButton.addEventListener("click", openEditProfilePopup);
+openProfilePopupButton.addEventListener("click" , () => {
+
+ openEditProfilePopup(); 
+  //enableButton();
+
+ 
+});
 
 closeProfilePopupButton.addEventListener("click", () => {
   closePopup(editProfilePopup);

@@ -3,6 +3,7 @@ function showError(input, formElement, configurations) {
     const errorElement = formElement.querySelector(`#${input.id}-error`);
     errorElement.textContent = error;
     input.classList.add(configurations.inputErrorClass);
+    errorElement.classList.add(configurations.errorClass);
 }
 
 function hideError(input, formElement, configurations) {
@@ -12,7 +13,7 @@ function hideError(input, formElement, configurations) {
     errorElement.classList.remove(configurations.errorClass);
 }
 
-function CheckValidaty(input, formElement, configurations) {
+function checkValidaty(input, formElement, configurations) {
     if(input.validity.valid) {
         hideError(input, formElement, configurations);
     }else{ 
@@ -22,24 +23,24 @@ function CheckValidaty(input, formElement, configurations) {
 
 const thereInvalidInputs = (inputList) => {
     return inputList.some((input) => {
-      return !input.validity.valid;
+      return input.validity.valid;
     });
   };
 
 export function enableButton(button, configurations) {
-    button.disabled = true;
-    button.classList.add(configurations.inactiveButtonClass);
-}
-function disableButton(button, configurations) {
     button.disabled = false;
     button.classList.remove(configurations.inactiveButtonClass);
+}
+function disableButton(button, configurations) {
+    button.disabled = true;
+    button.classList.add(configurations.inactiveButtonClass);
 } 
 
 export function toggleButton(inputList, button, configurations) {
     if (thereInvalidInputs(inputList)) {
-        enableButton(button,configurations);
-    } else {
         disableButton(button,configurations);
+    } else {
+        enableButton(button,configurations);
     }
 }
 
@@ -50,7 +51,7 @@ function setEventListeners(formElement, configurations) {
     toggleButton(inputList, button, configurations);
     inputList.forEach((input) => {
       input.addEventListener("input", () => {
-        CheckValidaty(input, formElement, configurations);
+        checkValidaty(input, formElement, configurations);
         toggleButton(inputList, button, configurations);
       });
     });
