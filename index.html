@@ -107,8 +107,10 @@
           <div class="popup__input">
             <h3 class="popup__header">Edit profile</h3>
 
-            <input class="popup__content popup__content_type_name" placeholder="name" name="name" type="text">
-            <input class="popup__content popup__content_type_about-me" placeholder="name" name="about-me" type="text">
+            <input id="name-input" class="popup__content popup__content_type_name" placeholder="name" name="name" type="text" minlength="2" maxlength="40" required>
+            <span id="name-input-error"></span>
+            <input id="job-input" class="popup__content popup__content_type_about-me" placeholder="name" name="about-me" type="text" minlength="2" maxlength="200" required>
+            <span id="job-input-error"></span>
             <button class="popup__save" type="submit">save</button>
           </div>
         </form>
@@ -121,8 +123,10 @@
         </button>
         <form class="popup__form popup__form_type-add" name="add card">
           <h3 class="popup__header">New place</h3>
-          <input class="popup__content popup__content_type_img-title" placeholder="Title" type="text">
-          <input class="popup__content popup__content_type_img-link" placeholder="Image link" type="text">
+          <input id="card-input" class="popup__content popup__content_type_img-title" placeholder="Title" type="text" minlength="1" maxlength="30" required>
+          <span id="card-input-error"></span>
+          <input id="card-link-input" class="popup__content popup__content_type_img-link" placeholder="Image link" type="url" required>
+          <span id="card-link-input-error"></span>
           <button class="popup__save" type="submit">Create</button>
         </form>
       </div>
@@ -150,7 +154,7 @@
       </li>
     </template>
   </div>
-  <script src="./script/index.js"></script>
+  <script type="module" src="./script/index.js"></script>
 </body>
 
 </html>

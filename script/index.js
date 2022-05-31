@@ -1,3 +1,11 @@
+import {
+  enableButton,
+  toggleButton,
+  configurations,
+  
+} from "./validate.js";
+
+
 ////////////
 //Declaration//
 ////////////
