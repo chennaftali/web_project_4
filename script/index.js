@@ -2,7 +2,7 @@ import {
   enableButton,
   toggleButton,
   configurations,
-  
+  hideErrorsOnModalClose,
 } from "./validate.js";
 
 
@@ -135,7 +135,7 @@ initialCards.forEach(renderCard);
 openProfilePopupButton.addEventListener("click" , () => {
 
  openEditProfilePopup(); 
-  //enableButton();
+  enableButton();
 
  
 });
