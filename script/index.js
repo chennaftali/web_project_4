@@ -1,5 +1,5 @@
 import {
-  //enableButton,
+  enableButton,
   toggleButton,
   configurations,
   hideErrorsOnModalClose,
@@ -135,8 +135,6 @@ initialCards.forEach(renderCard);
 openProfilePopupButton.addEventListener("click" , () => {
 
  openEditProfilePopup(); 
-  //enableButton();
-
  
 });
 
@@ -152,6 +150,7 @@ formProfile.addEventListener("submit", saveProfilePopup);
 
 addCardButton.addEventListener("click", () => {
   openPopup(addCardPopup);
+  toggleButton();
 });
 
 closeAddPopupButton.addEventListener("click", () => {
