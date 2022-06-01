@@ -22,10 +22,12 @@ function checkValidaty(input, formElement, configurations) {
 }
 
 const thereInvalidInputs = (inputList) => {
-     inputList.some((input) => {
-       !input.validity.valid;
+    return inputList.some((input) => {
+      return !input.validity.valid;
     });
   };
+
+  
 
 export function enableButton(button, configurations) {
     button.disabled = false;
