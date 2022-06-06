@@ -72,6 +72,10 @@ const cardTemplate = document
 const previewImage = document.querySelector(".popup__img-preview");
 const previewImageTitle = document.querySelector(".popup__header-img");
 
+
+///const inputList = document.querySelector(".popup__content");
+//const button = document.querySelector(".popup__save");
+//const configurations = document.querySelector();
 /////////////////Function/////////////////////
 
 function openPopup(popup) {
@@ -149,8 +153,11 @@ closeImagePopup.addEventListener("click", () => {
 formProfile.addEventListener("submit", saveProfilePopup);
 
 addCardButton.addEventListener("click", () => {
+  
+  const inputList = Array.from(document.querySelectorAll(configurations.inputSelector));
+  const button = document.querySelector(configurations.submitButtonSelector);
   openPopup(addCardPopup);
-  toggleButton();
+  toggleButton(inputList, button, configurations);
 });
 
 closeAddPopupButton.addEventListener("click", () => {
