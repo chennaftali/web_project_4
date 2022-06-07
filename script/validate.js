@@ -11,6 +11,7 @@ function hideError(input, formElement, configurations) {
     errorElement.textContent = '';
     input.classList.remove(configurations.inputErrorClass);
     errorElement.classList.remove(configurations.errorClass);
+   // console.log(errorElement);
 }
 
 function checkValidaty(input, formElement, configurations) {
@@ -48,7 +49,7 @@ export function toggleButton(inputList, button, configurations) {
 }
 
 function setEventListeners(formElement, configurations) {
-    const inputList = Array.from(document.querySelectorAll(configurations.inputSelector));
+    const inputList = Array.from(formElement.querySelectorAll(`${configurations.inputSelector}`));
     const button = document.querySelector(configurations.submitButtonSelector);
   
     inputList.forEach((input) => {
