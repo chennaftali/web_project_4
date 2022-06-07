@@ -54,6 +54,7 @@ function setEventListeners(formElement, configurations) {
   
     inputList.forEach((input) => {
       input.addEventListener("input", () => {
+         // disableButton(configurations, inactiveButtonClass);
         checkValidaty(input, formElement, configurations);
         toggleButton(inputList, button, configurations);
       });
