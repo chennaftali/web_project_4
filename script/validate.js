@@ -1,86 +1,66 @@
-function showError(input, formElement, configurations) {
+
+
+function showError(input) {
     const error = input.validationMessage;
-    const errorElement = formElement.querySelector(`#${input.id}-error`);
+    const errorElement = document.querySelector(`#${input.id}-error`);
     errorElement.textContent = error;
-    input.classList.add(configurations.inputErrorClass);
-    errorElement.classList.add(configurations.errorClass);
+    //input.classList.add("popup__content_theam_error");
+    errorElement.classList.add("popup__content_theam_error");
 }
 
-function hideError(input, formElement, configurations) {
-    const errorElement = formElement.querySelector(`#${input.id}-error`);
-    errorElement.textContent = '';
-    input.classList.remove(configurations.inputErrorClass);
-    errorElement.classList.remove(configurations.errorClass);
-   // console.log(errorElement);
+ const hideError = (input) => {
+    const errorElement = document.querySelector(`#${input.id}-error`);
+    errorElement.textContent = " ";
+    errorElement.classList.remove("popup__content_theam_error");
 }
 
-function checkValidaty(input, formElement, configurations) {
-    if(!input.validity.valid) {
-        showError(input, formElement, configurations);
-    }else{ 
-        hideError(input, formElement, configurations);
-    }
-}
-
-const thereInvalidInputs = (inputList) => {
-    return inputList.some((input) => {
-      return !input.validity.valid;
-    });
-  };
-
-  
-
-export function enableButton(button, configurations) {
-    button.disabled = false;
-    button.classList.remove(configurations.inactiveButtonClass);
-}
-
-function disableButton(button, configurations) {
-    button.disabled = true;
-    button.classList.add(configurations.inactiveButtonClass);
-} 
-
-export function toggleButton(inputList, button, configurations) {
-    if (thereInvalidInputs(inputList)) {
-        disableButton(button,configurations);
-    } else {
-        enableButton(button,configurations);
-    }
-}
-
-function setEventListeners(formElement, configurations) {
-    const inputList = Array.from(formElement.querySelectorAll(`${configurations.inputSelector}`));
-    const button = document.querySelector(configurations.submitButtonSelector);
-  
-    inputList.forEach((input) => {
-      input.addEventListener("input", () => {
-         // disableButton(configurations, inactiveButtonClass);
-        checkValidaty(input, formElement, configurations);
-        toggleButton(inputList, button, configurations);
-      });
-    });
-  }; 
-
-
-const enableValidation = (configurations) => {
-    const form = Array.from(document.querySelectorAll(configurations.formSelector));
-    //console.log(form);
-    
-    form.forEach((form) => {
-        form.addEventListener('submit', (e) => e.preventDefault())
-        setEventListeners(form, configurations);
-        });
+function toggleButtonState(inputs, button) {
+    const isFormValid = inputs.every(input => input.validity.valid) 
+        if(isFormValid) {
+            button.disabled = false;
+            button.classList.remove("popup__save_disabled");
+        }else{
+            button.disabled = "disabled";
+            button.classList.add("popup__save_disabled");
         };
-
-        
-export function hideErrorsOnModalClose(modal) {
-    const formElement = modal.querySelector(configurations.formSelector);
-    const inputList = [...formElement.querySelectorAll(configurations.inputSelector)];
-    inputList.forEach((input) => {
-        hideError(formElement, input, configurations);
-    });
+    
 };
-export const configurations = {
+
+ export const resetValidation = () => {
+    const inputs = [...document.querySelectorAll(".popup__content")];
+    inputs.forEach((inputs) => {
+            hideError(inputs);
+        })
+}
+
+function checkValidaty(input) {
+    if(input.validity.valid) {
+        hideError(input);
+    }else{
+        showError(input);
+    }
+}
+
+
+function enableValidation(setting) {
+    const forms = [...document.querySelectorAll(".popup__form")];
+    console.log(forms);
+
+    forms.forEach(form => {
+        form.addEventListener("submit", (e) => e.preventDefault());
+        const inputs = [...form.querySelectorAll(".popup__content")];
+        const button = form.querySelector(".popup__save");
+
+
+        inputs.forEach(input => {
+            input.addEventListener("input", () => {
+                checkValidaty(input);
+                toggleButtonState(inputs, button);
+            })
+        })
+    })
+}
+ export const configurations = {
     formSelector: ".popup__form",
     inputSelector: ".popup__content",
     submitButtonSelector: ".popup__save",

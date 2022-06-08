@@ -1,8 +1,8 @@
 import {
-  enableButton,
-  toggleButton,
-  configurations,
-  hideErrorsOnModalClose,
+  //enableButton,
+  //toggleButtonState,
+    configurations,
+  resetValidation,
 } from "./validate.js";
 
 
@@ -137,11 +137,13 @@ initialCards.forEach(renderCard);
 openProfilePopupButton.addEventListener("click" , () => {
 
  openEditProfilePopup(); 
- 
+ resetValidation();
+
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
   closePopup(editProfilePopup);
+  
 });
 
 closeImagePopup.addEventListener("click", () => {
@@ -149,16 +151,19 @@ closeImagePopup.addEventListener("click", () => {
 });
 
 formProfile.addEventListener("submit", saveProfilePopup);
+//disableButton(button, configurations);
 
 addCardButton.addEventListener("click", () => {
-  const inputList = Array.from(document.querySelectorAll(configurations.inputSelector));
-  const button = document.querySelector(configurations.submitButtonSelector);
+  //const inputList = Array.from(document.querySelectorAll(configurations.inputSelector));
+  //const button = document.querySelector(configurations.submitButtonSelector);
   openPopup(addCardPopup);
-  toggleButton(inputList, button, configurations);
+  //toggleButton(inputList, button, configurations);
+  hideError(input)
 });
 
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
+  resetValidation(input);
 });
 
 formAdd.addEventListener("submit", function (event) {
