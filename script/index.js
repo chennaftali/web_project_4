@@ -76,7 +76,8 @@ const inputs = [...document.querySelectorAll(".popup__content")];
 // const inputs = document.querySelector(".profile__name");
 
 const button = document.querySelector(".popup__save");
-
+const profileInputList = [...editProfilePopup.querySelectorAll("toggpopup__content"),];
+const profileSaveButton = editProfilePopup.querySelector(".popup__save");
 
 /////////////////Function/////////////////////
 
@@ -87,11 +88,13 @@ function openPopup(popup) {
   //toggleButtonState(popup);
 }
 
+
+
 function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
   openPopup(editProfilePopup);
-  toggleButtonState();
+  toggleButtonState(profileInputList, profileSaveButton);
 }
 
 function closePopup(popup) {
