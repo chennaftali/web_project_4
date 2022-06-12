@@ -1,6 +1,6 @@
 import {
   //enableButton,
-  //toggleButtonState,
+  toggleButtonState,
     configurations,
   resetValidation,
 } from "./validate.js";
@@ -72,6 +72,10 @@ const cardTemplate = document
 const previewImage = document.querySelector(".popup__img-preview");
 const previewImageTitle = document.querySelector(".popup__header-img");
 
+const inputs = [...document.querySelectorAll(".popup__content")];
+// const inputs = document.querySelector(".profile__name");
+
+const button = document.querySelector(".popup__save");
 
 
 /////////////////Function/////////////////////
@@ -138,7 +142,7 @@ openProfilePopupButton.addEventListener("click" , () => {
 
  openEditProfilePopup(); 
  resetValidation();
-
+ 
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
@@ -153,12 +157,14 @@ closeImagePopup.addEventListener("click", () => {
 formProfile.addEventListener("submit", saveProfilePopup);
 //disableButton(button, configurations);
 
-addCardButton.addEventListener("click", () => {
+addCardButton.addEventListener("click", (inputs, button) => {
   //const inputList = Array.from(document.querySelectorAll(configurations.inputSelector));
   //const button = document.querySelector(configurations.submitButtonSelector);
   openPopup(addCardPopup);
   //toggleButton(inputList, button, configurations);
   hideError(input)
+  toggleButtonState(inputs, button);
+
 });
 
 closeAddPopupButton.addEventListener("click", () => {

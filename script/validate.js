@@ -1,5 +1,4 @@
 
-
 function showError(input) {
     const error = input.validationMessage;
     const errorElement = document.querySelector(`#${input.id}-error`);
@@ -14,8 +13,8 @@ function showError(input) {
     errorElement.classList.remove("popup__content_theam_error");
 }
 
-function toggleButtonState(inputs, button) {
-    const isFormValid = inputs.every(input => input.validity.valid) 
+export const toggleButtonState = (inputs, button) => {
+    const isFormValid = inputs.every(input => input.validity.valid)
         if(isFormValid) {
             button.disabled = false;
             button.classList.remove("popup__save_disabled");
