@@ -82,16 +82,22 @@ const button = document.querySelector(".popup__save");
 
 function openPopup(popup) {
   popup.classList.add("popup_open");
+  document.addEventListener("keydown", closepopupOnEsc);
+  document.addEventListener("mousedown", closePopupOverlay);
+  //toggleButtonState(popup);
 }
 
 function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
   openPopup(editProfilePopup);
+  toggleButtonState();
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_open");
+  document.removeEventListener("keydown", closepopupOnEsc);
+  document.removeEventListener("mousedown", closePopupOverlay);
 }
 
 function saveProfilePopup(event) {
@@ -136,13 +142,31 @@ const renderCard = (card) => {
 };
 
 initialCards.forEach(renderCard);
+
+/////////add-card-function////////////////////////////////
+
+function closepopupOnEsc(evt) {
+  const currentModal = document.querySelector(".popup_open");
+  if (evt.key === "Escape") {
+    closePopup(currentModal);
+  }
+}
+
+function closePopupOverlay(evt) {
+  const currentModal = document.querySelector(".popup_open");
+  if (evt.target.classList.contains("popup")) {
+    closePopup(currentModal);
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////
 ///////////////Event Listeners////////////////
 
 openProfilePopupButton.addEventListener("click" , () => {
 
  openEditProfilePopup(); 
- resetValidation();
- 
+ resetValidation(inputs);
+
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
@@ -155,21 +179,16 @@ closeImagePopup.addEventListener("click", () => {
 });
 
 formProfile.addEventListener("submit", saveProfilePopup);
-//disableButton(button, configurations);
 
 addCardButton.addEventListener("click", (inputs, button) => {
-  //const inputList = Array.from(document.querySelectorAll(configurations.inputSelector));
-  //const button = document.querySelector(configurations.submitButtonSelector);
   openPopup(addCardPopup);
-  //toggleButton(inputList, button, configurations);
-  hideError(input)
+  hideError(inputs);
   toggleButtonState(inputs, button);
-
 });
 
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
-  resetValidation(input);
+  resetValidation(inputs);
 });
 
 formAdd.addEventListener("submit", function (event) {
