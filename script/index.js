@@ -3,6 +3,7 @@ import {
   toggleButtonState,
     configurations,
   resetValidation,
+  hideError,
 } from "./validate.js";
 
 
@@ -185,7 +186,7 @@ formProfile.addEventListener("submit", saveProfilePopup);
 
 addCardButton.addEventListener("click", (inputs, button) => {
   openPopup(addCardPopup);
-  hideError(inputs);
+  hideError(inputs, button);
   toggleButtonState(inputs, button);
 });
 

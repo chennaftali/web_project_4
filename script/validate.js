@@ -7,23 +7,13 @@ function showError(input) {
     errorElement.classList.add("popup__content_theam_error");
 }
 
- const hideError = (input) => {
+export const hideError = (input) => {
     const errorElement = document.querySelector(`#${input.id}-error`);
-    errorElement.textContent = " ";
+    errorElement.textContent = "";
     errorElement.classList.remove("popup__content_theam_error");
 }
 
-//export const toggleButtonState = (inputs, button) => {
-    //const isFormValid = inputs.every(input => input.validity.valid)
-        //if(isFormValid) {
-        //    button.disabled = false;
-        //    button.classList.remove("popup__save_disabled");
-       // }else{
-       //     button.disabled = "true";
-       //     button.classList.add("popup__save_disabled");
-       // };
-    
-//};
+
 
 export const toggleButtonState = (inputs, button) => {
     const isFormValid = inputs.every((input) => input.validity.valid);
