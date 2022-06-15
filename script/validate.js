@@ -2,7 +2,6 @@ function showError(input) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = error;
-  //input.classList.add("popup__content_theam_error");
   errorElement.classList.add("popup__content_theam_error");
 }
 
@@ -25,18 +24,13 @@ export const disableButton = button => {
 export const toggleButtonState = (inputs, button) => {
   const isFormValid = inputs.every((input) => input.validity.valid);
   if (isFormValid) {
-    //button.disabled = false;
-    //button.classList.remove("popup__save_disabled");
     enableButton(button);
   } else {
-    //button.disabled = true;
-    //button.classList.add("popup__save_disabled");
     disableButton(button);
   }
 };
 
 export const resetValidation = (inputs) => {
-  // const inputs = [...document.querySelectorAll(".popup__content")];
   inputs.forEach((inputs) => {
     hideError(inputs);
   });
@@ -52,11 +46,10 @@ function checkValidaty(input) {
 
 function enableValidation(setting) {
   const forms = [...document.querySelectorAll(".popup__form")];
-  console.log(forms);
 
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => e.preventDefault());
-    const inputs = [...form.querySelectorAll(".popup__content")];
+    const inputs = [...form.querySelectorAll(configurations. inputSelector)];
     const button = form.querySelector(".popup__save");
 
     inputs.forEach((input) => {

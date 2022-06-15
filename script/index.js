@@ -74,7 +74,6 @@ const previewImage = document.querySelector(".popup__img-preview");
 const previewImageTitle = document.querySelector(".popup__header-img");
 
 const inputList = [...document.querySelectorAll(".popup__content")];
-// const inputs = document.querySelector(".profile__name");
 const inputs = [...document.querySelectorAll(".popup__content")];
 
 
@@ -88,7 +87,6 @@ function openPopup(popup) {
   popup.classList.add("popup_open");
   document.addEventListener("keydown", closepopupOnEsc);
   document.addEventListener("mousedown", closePopupOverlay);
-  //toggleButtonState(popup);
 }
 
 function openEditProfilePopup() {
@@ -105,8 +103,8 @@ function closePopup(popup) {
 }
 
 function saveProfilePopup(event) {
-  closePopup(editProfilePopup);
   event.preventDefault();
+  closePopup(editProfilePopup);
   profileName.textContent = inputName.value;
   profileOccupation.textContent = inputOccupation.value;
 }
@@ -165,7 +163,6 @@ function closePopupOverlay(evt) {
 
 function handleAddCardClick() {
   openPopup(addCardPopup);
-  //toggleButtonState(inputList, button);
   disableButton(button);
 }
 

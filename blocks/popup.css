@@ -80,6 +80,7 @@
 }
 .popup__content_theam_error{
   color: red;
+  border-top: 1px solid  red;
 }
 .popup__content {
   font-size: 14px;
@@ -116,7 +117,7 @@
   transition-duration: 1s;
   width: 358px;
 }
-.popup__save:hover {
+.popup__save:hover:not(:disabled) {
   opacity: 0.8;
   cursor: pointer;
 }
