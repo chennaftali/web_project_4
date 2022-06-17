@@ -6,7 +6,6 @@ import {
   hideError,
 } from "./validate.js";
 
-
 ////////////
 //Declaration//
 ////////////
@@ -76,9 +75,10 @@ const previewImageTitle = document.querySelector(".popup__header-img");
 const inputList = [...document.querySelectorAll(".popup__content")];
 const inputs = [...document.querySelectorAll(".popup__content")];
 
-
-const button = document.querySelector(".popup__save");
-const profileInputList = [...editProfilePopup.querySelectorAll("toggpopup__content"),];
+const saveCardButton = addCardPopup.querySelector(".popup__save");
+const profileInputList = [
+  ...editProfilePopup.querySelectorAll("toggpopup__content"),
+];
 const profileSaveButton = editProfilePopup.querySelector(".popup__save");
 
 /////////////////Function/////////////////////
@@ -163,20 +163,19 @@ function closePopupOverlay(evt) {
 
 function handleAddCardClick() {
   openPopup(addCardPopup);
-  disableButton(button);
+  //disableButton(button);
 }
 
 /////////////////////////////////////////////////////////////////////////
 ///////////////Event Listeners////////////////
 
-openProfilePopupButton.addEventListener("click" , () => {
- openEditProfilePopup(); 
- resetValidation(inputs);
+openProfilePopupButton.addEventListener("click", () => {
+  openEditProfilePopup();
+  resetValidation(inputs);
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
   closePopup(editProfilePopup);
-  
 });
 
 closeImagePopup.addEventListener("click", () => {
@@ -201,4 +200,5 @@ formAdd.addEventListener("submit", function (event) {
   renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
+  disableButton(saveCardButton);
 });
