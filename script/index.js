@@ -157,13 +157,12 @@ function closepopupOnEsc(evt) {
 function closePopupOverlay(evt) {
   const currentModal = document.querySelector(".popup_open");
   if (evt.target.classList.contains("popup")) {
-    closePopup(currentModal);
+    closePopup(evt.target);
   }
 }
 
 function handleAddCardClick() {
   openPopup(addCardPopup);
-  //disableButton(button);
 }
 
 /////////////////////////////////////////////////////////////////////////

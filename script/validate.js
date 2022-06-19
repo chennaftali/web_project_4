@@ -5,10 +5,10 @@ function showError(input, setting) {
   errorElement.classList.add(setting.popup__content_theam_error);
 }
 
-export const hideError = (input) => {
+export const hideError = (input, setting) => {
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = "";
-  errorElement.classList.remove("popup__content_theam_error");
+  errorElement.classList.remove(setting.popup__content_theam_error);
 };
 
 export const disableButton = (button) => {
@@ -50,12 +50,12 @@ function enableValidation(setting) {
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => e.preventDefault());
     const inputs = [...form.querySelectorAll(configurations.inputSelector)];
-    const button = form.querySelector(".popup__save");
+    const button = form.querySelector(setting.submitButtonSelector);
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        checkValidaty(input);
-        toggleButtonState(inputs, button);
+        checkValidaty(input, setting);
+        toggleButtonState(inputs, button, setting);
       });
     });
   });
