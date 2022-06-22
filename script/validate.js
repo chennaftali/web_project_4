@@ -50,7 +50,7 @@ function enableValidation(setting) {
 
   forms.forEach((form) => {
     form.addEventListener("submit", (e) => e.preventDefault());
-    const inputs = [...form.querySelectorAll(configurations.inputSelector)];
+    const inputs = [...form.querySelectorAll(setting.inputSelector)];
     const button = form.querySelector(setting.submitButtonSelector);
 
     inputs.forEach((input) => {
@@ -61,7 +61,7 @@ function enableValidation(setting) {
     });
   });
 }
-export const configurations = {
+export const setting = {
   formSelector: ".popup__form",
   inputSelector: ".popup__content",
   submitButtonSelector: ".popup__save",
@@ -70,4 +70,4 @@ export const configurations = {
   errorClass: "popup__error_visible",
 };
 
-enableValidation(configurations);
+enableValidation(setting);

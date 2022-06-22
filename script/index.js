@@ -1,7 +1,7 @@
 import {
   disableButton,
   toggleButtonState,
-  configurations,
+  setting,
   resetValidation,
   hideError,
 } from "./validate.js";
