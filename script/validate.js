@@ -2,31 +2,32 @@ function showError(input, setting) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = error;
-  errorElement.classList.add(setting.popup__content_theam_error);
+  errorElement.classList.add(setting.errorClass);
 }
 
 export const hideError = (input, setting) => {
   const errorElement = document.querySelector(`#${input.id}-error`);
   errorElement.textContent = "";
-  errorElement.classList.remove(setting.popup__content_theam_error);
+  errorElement.classList.remove(setting.errorClass);
 };
 
-export const disableButton = (button) => {
+export const disableButton = (button, setting) => {
   button.disabled = true;
-  button.classList.add("popup__save_disabled");
+  button.classList.add(setting.inactiveButtonClass);
 };
 
-const enableButton = (button) => {
+const enableButton = (button, setting) => {
   button.disabled = false;
-  button.classList.remove("popup__save_disabled");
+  button.classList.remove(setting.inactiveButtonClass);
+  //button.classList.remove(".popup__save_disabled");
 };
 
-export const toggleButtonState = (inputs, button) => {
+export const toggleButtonState = (inputs, button, setting) => {
   const isFormValid = inputs.every((input) => input.validity.valid);
   if (isFormValid) {
-    enableButton(button);
+    enableButton(button, setting);
   } else {
-    disableButton(button);
+    disableButton(button, setting);
   }
 };
 
