@@ -1,3 +1,14 @@
+export const setting = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__content",
+  submitButtonSelector: ".popup__save",
+  inactiveButtonClass: "popup__save_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
+
+enableValidation(setting);
+
 function showError(input, setting) {
   const error = input.validationMessage;
   const errorElement = document.querySelector(`#${input.id}-error`);
@@ -16,6 +27,7 @@ export const disableButton = (button, setting) => {
   button.classList.add(setting.inactiveButtonClass);
 };
 
+console.log(setting.inactiveButtonClass);
 const enableButton = (button, setting) => {
   button.disabled = false;
   button.classList.remove(setting.inactiveButtonClass);
@@ -61,13 +73,4 @@ function enableValidation(setting) {
     });
   });
 }
-export const setting = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__content",
-  submitButtonSelector: ".popup__save",
-  inactiveButtonClass: "popup__save_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
 
-enableValidation(setting);
