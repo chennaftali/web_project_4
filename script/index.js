@@ -182,6 +182,8 @@ closeImagePopup.addEventListener("click", () => {
 });
 
 formProfile.addEventListener("submit", saveProfilePopup);
+//const button = formProfile.querySelector(".popup__save")
+//disableButton(button, setting);
 
 addCardButton.addEventListener("click", handleAddCardClick);
 
@@ -191,7 +193,9 @@ closeAddPopupButton.addEventListener("click", () => {
 });
 
 formAdd.addEventListener("submit", function (event) {
-  event.preventDefault();
+  //event.preventDefault();
+  const button = formAdd.querySelector(".popup__save")
+disableButton(button, setting);
   const card = {
     name: addTitleInput.value,
     link: addImageInput.value,
@@ -199,5 +203,5 @@ formAdd.addEventListener("submit", function (event) {
   renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
-  disableButton(saveCardButton);
+  //disableButton(setting.saveCardButton);
 });

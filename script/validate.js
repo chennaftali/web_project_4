@@ -24,11 +24,13 @@ export const hideError = (input, setting) => {
 
 export const disableButton = (button, setting) => {
   button.disabled = true;
+  console.log(setting);
   button.classList.add(setting.inactiveButtonClass);
 };
 
-console.log(setting.inactiveButtonClass);
+
 const enableButton = (button, setting) => {
+  
   button.disabled = false;
   button.classList.remove(setting.inactiveButtonClass);
   //button.classList.remove(".popup__save_disabled");
