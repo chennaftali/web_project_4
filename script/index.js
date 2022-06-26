@@ -93,7 +93,7 @@ function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
   openPopup(editProfilePopup);
-  toggleButtonState(profileInputList, profileSaveButton);
+  toggleButtonState(profileInputList, profileSaveButton, setting);
 }
 
 function closePopup(popup) {
@@ -107,6 +107,9 @@ function saveProfilePopup(event) {
   closePopup(editProfilePopup);
   profileName.textContent = inputName.value;
   profileOccupation.textContent = inputOccupation.value;
+  const button = formAdd.querySelector(".popup__save")
+
+  disableButton(button, setting);
 }
 
 const createCard = (card) => {
@@ -182,8 +185,6 @@ closeImagePopup.addEventListener("click", () => {
 });
 
 formProfile.addEventListener("submit", saveProfilePopup);
-//const button = formProfile.querySelector(".popup__save")
-//disableButton(button, setting);
 
 addCardButton.addEventListener("click", handleAddCardClick);
 
@@ -193,7 +194,6 @@ closeAddPopupButton.addEventListener("click", () => {
 });
 
 formAdd.addEventListener("submit", function (event) {
-  //event.preventDefault();
   const button = formAdd.querySelector(".popup__save")
 disableButton(button, setting);
   const card = {
@@ -203,5 +203,6 @@ disableButton(button, setting);
   renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
-  //disableButton(setting.saveCardButton);
 });
+
+

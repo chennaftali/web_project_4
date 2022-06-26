@@ -30,10 +30,8 @@ export const disableButton = (button, setting) => {
 
 
 const enableButton = (button, setting) => {
-  
   button.disabled = false;
   button.classList.remove(setting.inactiveButtonClass);
-  //button.classList.remove(".popup__save_disabled");
 };
 
 export const toggleButtonState = (inputs, button, setting) => {
@@ -47,7 +45,7 @@ export const toggleButtonState = (inputs, button, setting) => {
 
 export const resetValidation = (inputs) => {
   inputs.forEach((inputs) => {
-    hideError(inputs);
+    hideError(inputs, setting);
   });
 };
 
@@ -59,7 +57,7 @@ function checkValidaty(input, setting) {
   }
 }
 
-function enableValidation(setting) {
+function enableValidation(setting, input, button) {
   const forms = [...document.querySelectorAll(".popup__form")];
 
   forms.forEach((form) => {
