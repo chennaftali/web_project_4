@@ -1,11 +1,25 @@
-import {
-  disableButton,
-  toggleButtonState,
-  setting,
-  resetValidation,
-  hideError,
-} from "./validate.js";
+import {card} from './card.js';
 
+import { FormValidator } from './FormValidator.js';
+
+const setting = {
+  inputSelector: '.popup__content',
+  submitButtonSelector: '.popup__save',
+  inactiveButtonClass: 'popup__save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+};
+
+const addCardForm = document.querySelector('.popup__form_type-add');
+const editProfileForm = document.querySelector('.popup__form_type-profile');
+
+const addCardFormValidator = new FormValidator(setting, addCardForm);
+const editProfileFormValidator = new FormValidator(setting, editProfileForm);
+
+addCardFormValidator._enableValidation();
+editProfileFormValidator._enableValidation();
+
+////////////
 ////////////
 //Declaration//
 ////////////
@@ -93,7 +107,7 @@ function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
   openPopup(editProfilePopup);
-  toggleButtonState(profileInputList, profileSaveButton, setting);
+  editProfileFormValidator.toggleButtonState(profileInputList, profileSaveButton, setting);
 }
 
 function closePopup(popup) {
@@ -173,7 +187,7 @@ function handleAddCardClick() {
 
 openProfilePopupButton.addEventListener("click", () => {
   openEditProfilePopup();
-  resetValidation(inputs);
+  editProfileFormValidator.resetValidation(inputs);
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
