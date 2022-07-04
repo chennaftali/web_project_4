@@ -1,9 +1,9 @@
 import {} from "./utils.js";
 
-export class card {
-  Constructor({ name, link }, templateCardSelector) {
-    this.name = name;
-    this.link = link;
+export class Card {
+  constructor({ name, link }, templateCardSelector) {
+    this._name = name;
+    this._link = link;
     this._templateCardSelector = templateCardSelector;
     this.cardTemplate = document
       .querySelector(templateCardSelector)
@@ -18,11 +18,11 @@ export class card {
 
     _closePopup = (popup) => {
       popup.classList.remove("popup_open");
-      document.removeEventListener("keydown", this._closepopupOnEsc);
+      document.removeEventListener("keydown", this._closePopupOnEsc);
       document.removeEventListener("mousedown", this._closePopupOverlay);
     };
 
-    _closepopupOnEsc = (evt) => {
+    _closePopupOnEsc = (evt) => {
       const currentModal = document.querySelector(".popup_open");
       if (evt.key === "Escape") {
         this._closePopup(currentModal);
@@ -35,12 +35,12 @@ export class card {
     };
 
     _handleDelete = () => {
-      cardElement.remove();
+      this._cardElement.remove();
     };
 
     _openPopup = (popup) => {
       popup.classList.add("popup_open");
-      document.addEventListener("keydown", this._closepopupOnEsc);
+      document.addEventListener("keydown", this._closePopupOnEsc);
       document.addEventListener("mousedown", this._closePopupOverlay);
     };
 

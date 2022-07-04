@@ -1,4 +1,4 @@
-import {card} from './card.js';
+import {card} from './Card.js';
 
 import { FormValidator } from './FormValidator.js';
 
@@ -16,8 +16,8 @@ const editProfileForm = document.querySelector('.popup__form_type-profile');
 const addCardFormValidator = new FormValidator(setting, addCardForm);
 const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
-addCardFormValidator._enableValidation();
-editProfileFormValidator._enableValidation();
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
 
 ////////////
 ////////////
@@ -99,7 +99,7 @@ const profileSaveButton = editProfilePopup.querySelector(".popup__save");
 
 function openPopup(popup) {
   popup.classList.add("popup_open");
-  document.addEventListener("keydown", closepopupOnEsc);
+  document.addEventListener("keydown", closePopupOnEsc);
   document.addEventListener("mousedown", closePopupOverlay);
 }
 
@@ -112,7 +112,7 @@ function openEditProfilePopup() {
 
 function closePopup(popup) {
   popup.classList.remove("popup_open");
-  document.removeEventListener("keydown", closepopupOnEsc);
+  document.removeEventListener("keydown", closePopupOnEsc);
   document.removeEventListener("mousedown", closePopupOverlay);
 }
 
@@ -164,7 +164,7 @@ initialCards.forEach(renderCard);
 
 /////////add-card-function////////////////////////////////
 
-function closepopupOnEsc(evt) {
+function closePopupOnEsc(evt) {
   const currentModal = document.querySelector(".popup_open");
   if (evt.key === "Escape") {
     closePopup(currentModal);
