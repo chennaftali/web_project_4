@@ -1,57 +1,40 @@
-import {} from "./utils.js";
+import { openPopup } from "./utils.js";
 
-export class Card {
+const previewImage = document.querySelector('.popup__img-preview');
+const previewImageTitle = document.querySelector('.popup__header-img');
+const imagePopup = document.querySelector('.popup_type_image-preview');
+
+
+
+export  class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
     this._link = link;
-    this._templateCardSelector = templateCardSelector;
+    this._templateCardSelector = templateCardSelector;////לבדוק
     this.cardTemplate = document
       .querySelector(templateCardSelector)
       .content.querySelector(".card__list-item");
 
-    closePopupOverlay = (evt) => {
-      const currentModal = document.querySelector(".popup_open");
-      if (evt.target.classList.contains("popup")) {
-        this._closePopup(evt.target);
-      }
-    };
-
-    _closePopup = (popup) => {
-      popup.classList.remove("popup_open");
-      document.removeEventListener("keydown", this._closePopupOnEsc);
-      document.removeEventListener("mousedown", this._closePopupOverlay);
-    };
-
-    _closePopupOnEsc = (evt) => {
-      const currentModal = document.querySelector(".popup_open");
-      if (evt.key === "Escape") {
-        this._closePopup(currentModal);
-      }
-    };
+   
 
     _toggleLikeButton = (e) => {
       const activLikeButton = e.target;
       activLikeButton.classList.toggle("card__button_type_active");
     };
 
-    _handleDelete = () => {
-      this._cardElement.remove();
-    };
-
-    _openPopup = (popup) => {
-      popup.classList.add("popup_open");
-      document.addEventListener("keydown", this._closePopupOnEsc);
-      document.addEventListener("mousedown", this._closePopupOverlay);
+    _handleDelete = (cardElement) => {
+      cardElement.remove();
     };
 
     createCard = () => {
-      this._cardElement = this.cardTemplate.cloneNode(true);
+      const cardElement = this.cardTemplate.cloneNode(true);
 
-      const cardImage = this._cardElement.querySelector(".card__img");
-      const deleteButton = this._cardElement.querySelector(
+      const cardImage = cardElement.querySelector(".card__img");
+      const cardTitle = cardElement.querySelector(".card__title");
+      const deleteButton = cardElement.querySelector(
         ".card__button_type_delete"
       );
-      const likeButton = this._cardElement.querySelector(
+      const likeButton = cardElement.querySelector(
         ".card__button_type-like"
       );
 
@@ -60,7 +43,9 @@ export class Card {
       cardTitle.textContent = this._name;
 
       likeButton.addEventListener("click", this._toggleLikeButton);
-      deleteButton.addEventListener("click", this._handleDelete);
+      deleteButton.addEventListener("click", function () {
+        cardElement.remove();
+        });
       cardImage.addEventListener("click", function () {
         previewImage.src = this._link;
         previewImage.alt = `photo of ${this._name}`;

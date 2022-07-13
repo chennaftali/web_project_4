@@ -1,4 +1,4 @@
-import {card} from './Card.js';
+import {Card} from './Card.js';
 
 import { FormValidator } from './FormValidator.js';
 
@@ -16,8 +16,8 @@ const editProfileForm = document.querySelector('.popup__form_type-profile');
 const addCardFormValidator = new FormValidator(setting, addCardForm);
 const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
-addCardFormValidator.enableValidation();
-editProfileFormValidator.enableValidation();
+addCardFormValidator._enableValidation();
+editProfileFormValidator._enableValidation();
 
 ////////////
 ////////////
