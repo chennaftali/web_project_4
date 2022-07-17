@@ -2,7 +2,7 @@ import {Card} from './Card.js';
 
 import { FormValidator } from './FormValidator.js';
 
-const setting = {
+ const setting = {
   inputSelector: '.popup__content',
   submitButtonSelector: '.popup__save',
   inactiveButtonClass: 'popup__save_disabled',
@@ -15,6 +15,7 @@ const editProfileForm = document.querySelector('.popup__form_type-profile');
 
 const addCardFormValidator = new FormValidator(setting, addCardForm);
 const editProfileFormValidator = new FormValidator(setting, editProfileForm);
+//const saveProfileImageValidator = new FormValidator(button, setting);
 
 addCardFormValidator._enableValidation();
 editProfileFormValidator._enableValidation();
@@ -122,11 +123,11 @@ function saveProfilePopup(event) {
   profileName.textContent = inputName.value;
   profileOccupation.textContent = inputOccupation.value;
   const button = formAdd.querySelector(".popup__save")
-
-  disableButton(button, setting);
+  editProfileFormValidator.disableButton(button);
 }
 
 const createCard = (card) => {
+  const card = new Card({ data, link }, templateCardSelector)
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__img");
   const cardTitle = cardElement.querySelector(".card__title");
@@ -149,7 +150,7 @@ const createCard = (card) => {
     openPopup(imagePopup);
   });
   return cardElement;
-};
+  };
 
 function toggleLikeButton(e) {
   const activLikeButton = e.target;
@@ -209,7 +210,7 @@ closeAddPopupButton.addEventListener("click", () => {
 
 formAdd.addEventListener("submit", function (event) {
   const button = formAdd.querySelector(".popup__save")
-disableButton(button, setting);
+  editProfileFormValidator.disableButton(button);
   const card = {
     name: addTitleInput.value,
     link: addImageInput.value,

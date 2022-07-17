@@ -4,17 +4,16 @@ const previewImage = document.querySelector('.popup__img-preview');
 const previewImageTitle = document.querySelector('.popup__header-img');
 const imagePopup = document.querySelector('.popup_type_image-preview');
 
-
-
 export  class Card {
   constructor({ name, link }, templateCardSelector) {
     this._name = name;
     this._link = link;
     this._templateCardSelector = templateCardSelector;////לבדוק
-    this.cardTemplate = document
-      .querySelector(templateCardSelector)
-      .content.querySelector(".card__list-item");
+    
+   _getElement = () => document.querySelector(this._templateCardSelector)
+   .content.querySelector(".card__list-item").cloneNode(true); 
 
+   this._cardElement = this._getElement();  
    
 
     _toggleLikeButton = (e) => {

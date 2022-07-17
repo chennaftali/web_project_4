@@ -6,7 +6,7 @@ export class FormValidator {
 
   resetValidation = (inputs) => {
     inputs.forEach((inputs) => {
-      this._hideError(inputs, this.setting);
+      this._hideError(inputs, this._setting);
     });
   };
 
@@ -14,23 +14,23 @@ export class FormValidator {
     const error = input.validationMessage;
     const errorElement = document.querySelector(`#${input.id}-error`);
     errorElement.textContent = error;
-    errorElement.classList.add(this.setting.errorClass);
+    errorElement.classList.add(this._setting.errorClass);
   };
 
   _hideError = (input) => {
     const errorElement = document.querySelector(`#${input.id}-error`);
     errorElement.textContent = "";
-    errorElement.classList.remove(this.setting.errorClass);
+    errorElement.classList.remove(this._setting.errorClass);
   };
 
-  _disableButton = (button) => {
+  disableButton = (button) => {
     button.disabled = true;
-    button.classList.add(this.setting.inactiveButtonClass);
+    button.classList.add(this._setting.inactiveButtonClass);
   };
 
   _enableButton = (button) => {
     button.disabled = false;
-    button.classList.remove(this.setting.inactiveButtonClass);
+    button.classList.remove(this._setting.inactiveButtonClass);
   };
 
   _checkValidaty = (input) => {
@@ -42,7 +42,7 @@ export class FormValidator {
   };
 
   _setEventListeners = () => {
-    const { inputSelector, submitButtonSelector } = this.setting;
+    const { inputSelector, submitButtonSelector } = this._setting;
 
     const inputs = [...this.formElement.querySelectorAll(inputSelector)];
     const button = this.formElement.querySelector(submitButtonSelector);
@@ -59,12 +59,13 @@ export class FormValidator {
     if (isFormValid) {
       this._enableButton(button);
     } else {
-      this._disableButton(button);
+      this.disableButton(button);
     }
   };
 
   _enableValidation() {
-    const { inputSelector, submitButtonSelector } = this.setting;
+    const { inputSelector, submitButtonSelector } = this._setting;
+
     const forms = [...document.querySelectorAll(".popup__form")];
     forms.forEach((form) => {
       form.addEventListener("submit", (e) => e.preventDefault());
