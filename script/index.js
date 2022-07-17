@@ -128,7 +128,7 @@ function saveProfilePopup(event) {
 
 const createCard = (data) => {
   const card = new Card(data, "#card__template")
-  data.createCard()
+  const cardElement = card.createCard() 
   // const cardElement = cardTemplate.cloneNode(true);
   // const cardImage = cardElement.querySelector(".card__img");
   // const cardTitle = cardElement.querySelector(".card__title");
@@ -142,14 +142,14 @@ const createCard = (data) => {
   // const handleDelete = () => {
   //   cardElement.remove();
   // };
-  deleteButton.addEventListener("click", handleDelete);
-  likeButton.addEventListener("click", toggleLikeButton);
-  cardImage.addEventListener("click", function () {
-    previewImage.src = data.link;
-    previewImage.alt = `photo of ${data.name}`;
-    previewImageTitle.textContent = data.name;
-    openPopup(imagePopup);
-  });
+  // deleteButton.addEventListener("click", handleDelete);
+  // likeButton.addEventListener("click", toggleLikeButton);
+  // cardImage.addEventListener("click", function () {
+  //   previewImage.src = data.link;
+  //   previewImage.alt = `photo of ${data.name}`;
+  //   previewImageTitle.textContent = data.name;
+  //   openPopup(imagePopup);
+  // });
   return cardElement;
   };
 

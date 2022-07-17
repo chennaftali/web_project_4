@@ -28,9 +28,10 @@ _getElement = () => { return document.querySelector(this._templateCardSelector)
  };
 
  createCard = () => {
-  this._cardElement = this._getElement();  
+  //this._cardElement = this._getElement();  
 
-   const cardElement = this.cardTemplate.cloneNode(true);
+   //const cardElement = this.cardTemplate.cloneNode(true);
+   const cardElement = this._getElement()
 
    const cardImage = cardElement.querySelector(".card__img");
    const cardTitle = cardElement.querySelector(".card__title");
