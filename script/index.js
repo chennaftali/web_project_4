@@ -126,27 +126,28 @@ function saveProfilePopup(event) {
   editProfileFormValidator.disableButton(button);
 }
 
-const createCard = (card) => {
-  const card = new Card({ data, link }, templateCardSelector)
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__img");
-  const cardTitle = cardElement.querySelector(".card__title");
-  const deleteButton = cardElement.querySelector(".card__button_type_delete");
-  const likeButton = cardElement.querySelector(".card__button_type-like");
+const createCard = (data) => {
+  const card = new Card(data, "#card__template")
+  data.createCard()
+  // const cardElement = cardTemplate.cloneNode(true);
+  // const cardImage = cardElement.querySelector(".card__img");
+  // const cardTitle = cardElement.querySelector(".card__title");
+  // const deleteButton = cardElement.querySelector(".card__button_type_delete");
+  // const likeButton = cardElement.querySelector(".card__button_type-like");
 
-  cardImage.src = card.link;
-  cardImage.alt = `photo of ${card.name}`;
-  cardTitle.textContent = card.name;
+  // cardImage.src = card.link;
+  // cardImage.alt = `photo of ${card.name}`;
+  // cardTitle.textContent = card.name;
 
-  const handleDelete = () => {
-    cardElement.remove();
-  };
+  // const handleDelete = () => {
+  //   cardElement.remove();
+  // };
   deleteButton.addEventListener("click", handleDelete);
   likeButton.addEventListener("click", toggleLikeButton);
   cardImage.addEventListener("click", function () {
-    previewImage.src = card.link;
-    previewImage.alt = `photo of ${card.name}`;
-    previewImageTitle.textContent = card.name;
+    previewImage.src = data.link;
+    previewImage.alt = `photo of ${data.name}`;
+    previewImageTitle.textContent = data.name;
     openPopup(imagePopup);
   });
   return cardElement;
