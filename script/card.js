@@ -27,9 +27,9 @@ _getElement = () => { return document.querySelector(this._templateCardSelector)
    cardElement.remove();
  };
 
- createCard = () => {
-  //this._cardElement = this._getElement();  
-
+ createCard () {
+  this._cardElement = this._getElement();  
+  console.log(this);
    //const cardElement = this.cardTemplate.cloneNode(true);
    const cardElement = this._getElement()
 

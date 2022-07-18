@@ -129,27 +129,7 @@ function saveProfilePopup(event) {
 const createCard = (data) => {
   const card = new Card(data, "#card__template")
   const cardElement = card.createCard() 
-  // const cardElement = cardTemplate.cloneNode(true);
-  // const cardImage = cardElement.querySelector(".card__img");
-  // const cardTitle = cardElement.querySelector(".card__title");
-  // const deleteButton = cardElement.querySelector(".card__button_type_delete");
-  // const likeButton = cardElement.querySelector(".card__button_type-like");
-
-  // cardImage.src = card.link;
-  // cardImage.alt = `photo of ${card.name}`;
-  // cardTitle.textContent = card.name;
-
-  // const handleDelete = () => {
-  //   cardElement.remove();
-  // };
-  // deleteButton.addEventListener("click", handleDelete);
-  // likeButton.addEventListener("click", toggleLikeButton);
-  // cardImage.addEventListener("click", function () {
-  //   previewImage.src = data.link;
-  //   previewImage.alt = `photo of ${data.name}`;
-  //   previewImageTitle.textContent = data.name;
-  //   openPopup(imagePopup);
-  // });
+  
   return cardElement;
   };
 
