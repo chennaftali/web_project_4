@@ -1,5 +1,4 @@
 
-
  const closePopupOverlay = (evt) => {
   const currentModal = document.querySelector(".popup_open");
   if (evt.target.classList.contains("popup")) {
