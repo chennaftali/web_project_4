@@ -29,7 +29,7 @@ _getElement = () => { return document.querySelector(this._templateCardSelector)
 
  createCard () {
   this._cardElement = this._getElement();  
-  console.log(this);
+  //console.log(this);
    //const cardElement = this.cardTemplate.cloneNode(true);
    const cardElement = this._getElement()
 
@@ -50,7 +50,7 @@ _getElement = () => { return document.querySelector(this._templateCardSelector)
    deleteButton.addEventListener("click", function () {
      cardElement.remove();
      });
-   cardImage.addEventListener("click", function () {
+   cardImage.addEventListener("click",  () => {
      previewImage.src = this._link;
      previewImage.alt = `photo of ${this._name}`;
      previewImageTitle.textContent = this._name;
