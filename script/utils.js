@@ -1,7 +1,7 @@
 
- const closePopupOverlay = (evt) => {
-  const currentModal = document.querySelector(".popup_open");
+ export const closePopupOverlay = (evt) => {
   if (evt.target.classList.contains("popup")) {
+    const currentModal = document.querySelector(".popup_open");
     closePopup(evt.target);
   }
 };
@@ -12,9 +12,9 @@
   document.removeEventListener("mousedown", closePopupOverlay);
 };
 
- const closePopupOnEsc = (evt) => {
-  const currentModal = document.querySelector(".popup_open");
+export const closePopupOnEsc = (evt) => {
   if (evt.key === "Escape") {
+    const currentModal = document.querySelector(".popup_open");
     closePopup(currentModal);
   }
 };
