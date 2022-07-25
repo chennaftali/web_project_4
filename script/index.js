@@ -1,7 +1,12 @@
 import { Card } from "./Card.js";
 
 import { FormValidator } from "./FormValidator.js";
-import { openPopup, closePopup, closePopupOnEsc, closePopupOverlay } from "./utils.js";
+import {
+  openPopup,
+  closePopup,
+  closePopupOnEsc,
+  closePopupOverlay,
+} from "./utils.js";
 const setting = {
   inputSelector: ".popup__content",
   submitButtonSelector: ".popup__save",
@@ -95,14 +100,9 @@ const profileInputList = [
 ];
 const profileSaveButton = editProfilePopup.querySelector(".popup__save");
 
+const button = formAdd.querySelector(".popup__save");
+
 /////////////////Function/////////////////////
-
-// function openPopup(popup) {
-//   popup.classList.add("popup_open");
-//   document.addEventListener("keydown", closePopupOnEsc);
-//   document.addEventListener("mousedown", closePopupOverlay);
-// }
-
 function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
@@ -113,12 +113,6 @@ function openEditProfilePopup() {
     setting
   );
 }
-
-// function closePopup(popup) {
-//   popup.classList.remove("popup_open");
-//   document.removeEventListener("keydown", closePopupOnEsc);
-//   document.removeEventListener("mousedown", closePopupOverlay);
-// }
 
 function saveProfilePopup(event) {
   event.preventDefault();
@@ -148,26 +142,11 @@ const renderCard = (card) => {
 initialCards.forEach(renderCard);
 
 /////////add-card-function////////////////////////////////
-
-// function closePopupOnEsc(evt) {
-//   const currentModal = document.querySelector(".popup_open");
-//   if (evt.key === "Escape") {
-//     closePopup(currentModal);
-//   }
-// }
-
-// function closePopupOverlay(evt) {
-//   const currentModal = document.querySelector(".popup_open");
-//   if (evt.target.classList.contains("popup")) {
-//     closePopup(evt.target);
-//   }
-// }
-
 function handleAddCardClick() {
-  resetValidation(inputs);
   openPopup(addCardPopup);
+  editProfileFormValidator.disableButton(button);
 }
-
+addCardButton.addEventListener("click", handleAddCardClick);
 /////////////////////////////////////////////////////////////////////////
 ///////////////Event Listeners////////////////
 
@@ -186,25 +165,22 @@ closeImagePopup.addEventListener("click", () => {
 
 formProfile.addEventListener("submit", saveProfilePopup);
 
-//addCardButton.addEventListener("click", handleAddCardClick);
 addCardButton.addEventListener("click", () => {
-    editProfileFormValidator.disableButton(button);
-
+  editProfileFormValidator.disableButton(button);
 });
 
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
-  //resetValidation(inputs);
 });
 
 formAdd.addEventListener("submit", function (event) {
-  const button = formAdd.querySelector(".popup__save");
-  //editProfileFormValidator.disableButton(button);
   const card = {
     name: addTitleInput.value,
     link: addImageInput.value,
   };
+
   renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
+  return button;
 });

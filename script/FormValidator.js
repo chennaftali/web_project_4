@@ -1,17 +1,10 @@
-// export class FormValidator {
-//   constructor(setting, formElement) {
-//     this._setting = setting;
-//     this._formElement = formElement;
-//   }
-  ///
   export class FormValidator {
     constructor(setting, formElement) {
       this._setting = setting;
       this._formElement = formElement;
-      this._inputs = Array.from(this._formElement.querySelectorAll(setting.popup__content))
-      this._button = this._formElement.querySelector(setting.popup__save)
+      this._inputs = Array.from(this._formElement.querySelectorAll(setting.popup__content));
+      this._button = this._formElement.querySelector(setting.submitButtonSelector);
     }
-    ////
  
   resetValidation = (inputs) => {
     inputs.forEach((inputs) => {
