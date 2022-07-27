@@ -21,8 +21,8 @@ const editProfileForm = document.querySelector(".popup__form_type-profile");
 const addCardFormValidator = new FormValidator(setting, addCardForm);
 const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
-addCardFormValidator._enableValidation();
-editProfileFormValidator._enableValidation();
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
 
 ////////////
 ////////////
@@ -84,17 +84,17 @@ const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__explorer");
 const elementList = document.querySelector(".element__list");
 
-const cardTemplate = document
-  .querySelector("#card__template")
-  .content.querySelector(".card__list-item");
+// const cardTemplate = document
+//   .querySelector("#card__template")
+//   .content.querySelector(".card__list-item");
 
-const previewImage = document.querySelector(".popup__img-preview");
-const previewImageTitle = document.querySelector(".popup__header-img");
+//const previewImage = document.querySelector(".popup__img-preview");
+//const previewImageTitle = document.querySelector(".popup__header-img");
 
-const inputList = [...document.querySelectorAll(".popup__content")];
+//const inputList = [...document.querySelectorAll(".popup__content")];
 const inputs = [...document.querySelectorAll(".popup__content")];
 
-const saveCardButton = addCardPopup.querySelector(".popup__save");
+//const saveCardButton = addCardPopup.querySelector(".popup__save");
 const profileInputList = [
   ...editProfilePopup.querySelectorAll("toggpopup__content"),
 ];
@@ -107,11 +107,7 @@ function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
   openPopup(editProfilePopup);
-  editProfileFormValidator.toggleButtonState(
-    profileInputList,
-    profileSaveButton,
-    setting
-  );
+  editProfileFormValidator.toggleButtonState();
 }
 
 function saveProfilePopup(event) {
@@ -120,7 +116,7 @@ function saveProfilePopup(event) {
   profileName.textContent = inputName.value;
   profileOccupation.textContent = inputOccupation.value;
   const button = formAdd.querySelector(".popup__save");
-  editProfileFormValidator.disableButton(button);
+  editProfileFormValidator.disableButton();
 }
 
 const createCard = (data) => {
@@ -152,7 +148,7 @@ addCardButton.addEventListener("click", handleAddCardClick);
 
 openProfilePopupButton.addEventListener("click", () => {
   openEditProfilePopup();
-  editProfileFormValidator.resetValidation(inputs);
+  editProfileFormValidator.resetValidation();
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
@@ -165,9 +161,9 @@ closeImagePopup.addEventListener("click", () => {
 
 formProfile.addEventListener("submit", saveProfilePopup);
 
-addCardButton.addEventListener("click", () => {
-  editProfileFormValidator.disableButton(button);
-});
+// addCardButton.addEventListener("click", () => {
+//   editProfileFormValidator.disableButton(button);
+// });
 
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
@@ -182,5 +178,5 @@ formAdd.addEventListener("submit", function (event) {
   renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
-  return button;
+  //return button;
 });

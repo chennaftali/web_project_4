@@ -29,7 +29,7 @@ export class Card {
     activLikeButton.classList.toggle("card__button_type_active");
   };
 
-  _handleDelete = (cardElement) => {
+  _handleDelete = () => {
     this._cardElement.remove();
   };
 
