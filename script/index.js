@@ -83,23 +83,6 @@ const closeAddPopupButton = document.querySelector(".popup__close_type_add");
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__explorer");
 const elementList = document.querySelector(".element__list");
-
-// const cardTemplate = document
-//   .querySelector("#card__template")
-//   .content.querySelector(".card__list-item");
-
-//const previewImage = document.querySelector(".popup__img-preview");
-//const previewImageTitle = document.querySelector(".popup__header-img");
-
-//const inputList = [...document.querySelectorAll(".popup__content")];
-const inputs = [...document.querySelectorAll(".popup__content")];
-
-//const saveCardButton = addCardPopup.querySelector(".popup__save");
-const profileInputList = [
-  ...editProfilePopup.querySelectorAll("toggpopup__content"),
-];
-const profileSaveButton = editProfilePopup.querySelector(".popup__save");
-
 const button = formAdd.querySelector(".popup__save");
 
 /////////////////Function/////////////////////
@@ -140,7 +123,7 @@ initialCards.forEach(renderCard);
 /////////add-card-function////////////////////////////////
 function handleAddCardClick() {
   openPopup(addCardPopup);
-  editProfileFormValidator.disableButton(button);
+  editProfileFormValidator.disableButton();
 }
 addCardButton.addEventListener("click", handleAddCardClick);
 /////////////////////////////////////////////////////////////////////////
@@ -161,10 +144,6 @@ closeImagePopup.addEventListener("click", () => {
 
 formProfile.addEventListener("submit", saveProfilePopup);
 
-// addCardButton.addEventListener("click", () => {
-//   editProfileFormValidator.disableButton(button);
-// });
-
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
 });
@@ -178,5 +157,4 @@ formAdd.addEventListener("submit", function (event) {
   renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
-  //return button;
 });
