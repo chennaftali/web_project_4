@@ -5,10 +5,18 @@ const previewImageTitle = document.querySelector(".popup__header-img");
 const imagePopup = document.querySelector(".popup_type_image-preview");
 
 export class Card {
-  constructor({ name, link }, templateCardSelector) {
-    this._name = name;
-    this._link = link;
+  //constructor({ name, link }, templateCardSelector, handleCardClick) {
+    // this._name = name;
+    // this._link = link;
+    
+    constructor(data, templateCardSelector, handleCardClick) {
+    this._text = data.name;
+    this._link = data.link;
+    
+    this._handleCardClick = handleCardClick;
+    
     this._templateCardSelector = templateCardSelector;
+    
   }
 
   _handleIamgeClick = () => {
@@ -51,7 +59,8 @@ export class Card {
 
     likeButton.addEventListener("click", this._toggleLikeButton);
     deleteButton.addEventListener("click", this._handleDelete);
-    cardImage.addEventListener("click", this._handleIamgeClick);
+    //cardImage.addEventListener("click", this._handleIamgeClick);
+    cardImage.addEventListener("click", this._handleCardClick);
 
     return this._cardElement;
   }
