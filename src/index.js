@@ -2,8 +2,16 @@ import {Card} from '../script/Card.js'
 
 import { FormValidator } from "../script/FormValidator.js";
 import { PopupWithImage } from "../script/PopupWithImage.js";
+import { PopupWithForm } from "../script/PopupWithForm.js";
 
-const editModal = new PopupWithImage(".popup_type_image-preview")
+
+const imageModal = new PopupWithImage(".popup_type_image-preview")
+imageModal.setEventListeners();
+
+const editModal = new PopupWithForm(".popup_type-edit",  (data) => {
+  profileName.textContent = data.name;
+  profileOccupation.textContent = data.Occupation;
+})
 editModal.setEventListeners();
 
 import {
@@ -97,16 +105,18 @@ function openEditProfilePopup() {
   editProfileFormValidator.toggleButtonState();
 }
 
-function saveProfilePopup(event) {
-  event.preventDefault();
-  closePopup(editProfilePopup);
-  profileName.textContent = inputName.value;
-  profileOccupation.textContent = inputOccupation.value;
-  editProfileFormValidator.disableButton();
-}
+// function saveProfilePopup(event) {
+//   event.preventDefault();
+//   closePopup(editProfilePopup);
+//   profileName.textContent = inputName.value;
+//   profileOccupation.textContent = inputOccupation.value;
+//   editProfileFormValidator.disableButton();
+// }
 
 const createCard = (data) => {
-  const card = new Card(data, "#card__template");
+  const card = new Card(data, "#card__template", () => {
+    imageModal.open(data.link, data.name);
+  } )
   const cardElement = card.createCard();
 
   return cardElement;
@@ -145,7 +155,8 @@ closeImagePopup.addEventListener("click", () => {
   closePopup(imagePopup);
 });
 
-formProfile.addEventListener("submit", saveProfilePopup);
+// formProfile.addEventListener("submit", saveProfilePopup);
+formProfile.addEventListener("submit", editModal);
 
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
