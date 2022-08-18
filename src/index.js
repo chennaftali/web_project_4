@@ -3,16 +3,35 @@ import {Card} from '../script/Card.js'
 import { FormValidator } from "../script/FormValidator.js";
 import { PopupWithImage } from "../script/PopupWithImage.js";
 import { PopupWithForm } from "../script/PopupWithForm.js";
+import { UserInfo } from "../script/UserInfo.js";
 
-
+const userInfo = new UserInfo({
+  profileNameSelector: ".profile__name", profileJobSelector: ".profile__explorer",
+})
 const imageModal = new PopupWithImage(".popup_type_image-preview")
 imageModal.setEventListeners();
 
-const editModal = new PopupWithForm(".popup_type-edit",  (data) => {
-  profileName.textContent = data.name;
-  profileOccupation.textContent = data.Occupation;
+ const editModal = new PopupWithForm(".popup_type-edit", (data) => {
+
+ userInfo.setUserInfo(data)
 })
-editModal.setEventListeners();
+   //console.log("data", data)
+
+//    profileName.textContent = data.about;
+//    profileOccupation.textContent = data.name;
+ editModal.setEventListeners();
+
+ const addCardModal = new PopupWithForm(".popup_type_add-card",  (data) => {
+   const card = {       //add card
+     name: data.placeName,
+     link: data.link
+   };
+   renderCard(card);
+  console.log("data", data)
+//   // profileName.textContent = data.name;
+//   // profileOccupation.textContent = data.Occupation;
+ })
+addCardModal.setEventListeners();
 
 import {
   openPopup,
@@ -143,8 +162,9 @@ addCardButton.addEventListener("click", handleAddCardClick);
 ///////////////Event Listeners////////////////
 
 openProfilePopupButton.addEventListener("click", () => {
-  openEditProfilePopup();
-  editProfileFormValidator.resetValidation();
+  editModal.open();
+  //openEditProfilePopup();
+  //editProfileFormValidator.resetValidation();
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
@@ -156,19 +176,19 @@ closeImagePopup.addEventListener("click", () => {
 });
 
 // formProfile.addEventListener("submit", saveProfilePopup);
-formProfile.addEventListener("submit", editModal);
+//formProfile.addEventListener("submit", editModal);
 
 closeAddPopupButton.addEventListener("click", () => {
   closePopup(addCardPopup);
 });
 
 formAdd.addEventListener("submit", function (event) {
-  const card = {
-    name: addTitleInput.value,
-    link: addImageInput.value,
-  };
+  // const card = {
+  //   name: addTitleInput.value,
+  //   link: addImageInput.value,
+  // };
 
-  renderCard(card);
+  //renderCard(card);
   closePopup(addCardPopup);
   formAdd.reset();
 });
