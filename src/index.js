@@ -162,6 +162,7 @@ addCardButton.addEventListener("click", handleAddCardClick);
 ///////////////Event Listeners////////////////
 
 openProfilePopupButton.addEventListener("click", () => {
+  const data = userInfo.getUserInfo()
   editModal.open();
   //openEditProfilePopup();
   //editProfileFormValidator.resetValidation();
