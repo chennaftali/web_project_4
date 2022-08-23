@@ -11,9 +11,9 @@ export class UserInfo {
         }
     }
 
-    setUserInfo({name, job}) {
+    setUserInfo({name, aboutMe}) {
         console.log("setUserInfo", this)
         this._profileName.textContent = name;
-        this._profileJob.textContent = job;
+        this._profileJob.textContent = aboutMe;
     }
 }
