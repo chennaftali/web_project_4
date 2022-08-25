@@ -4,6 +4,51 @@ import { FormValidator } from "../script/FormValidator.js";
 import { PopupWithImage } from "../script/PopupWithImage.js";
 import { PopupWithForm } from "../script/PopupWithForm.js";
 import { UserInfo } from "../script/UserInfo.js";
+import { Section } from "../script/Section.js";
+
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg",
+  },
+];
+
+const elementList = document.querySelector(".element__list");
+
+const createCard = (data) => {
+  const card = new Card(data, "#card__template", () => {
+    imageModal.open(data.link, data.name);
+  } )
+  const cardElement = card.createCard();
+
+  return cardElement;
+};
+
+const section = new Section({
+  items:[initialCards],
+  renderer: () => { createCard }
+}, elementList)
+section.render()
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name", profileJobSelector: ".profile__explorer",
@@ -60,32 +105,7 @@ editProfileFormValidator.enableValidation();
 ////////////
 //Declaration//
 ////////////
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
+
 
 ////////////popup//////////////
 ///////////////////////////////
@@ -114,7 +134,7 @@ const closeAddPopupButton = document.querySelector(".popup__close_type_add");
 /////////others DOM element/////////////
 const profileName = document.querySelector(".profile__name");
 const profileOccupation = document.querySelector(".profile__explorer");
-const elementList = document.querySelector(".element__list");
+//const elementList = document.querySelector(".element__list");
 
 /////////////////Function/////////////////////
 function openEditProfilePopup() {
@@ -132,14 +152,14 @@ function openEditProfilePopup() {
 //   editProfileFormValidator.disableButton();
 // }
 
-const createCard = (data) => {
-  const card = new Card(data, "#card__template", () => {
-    imageModal.open(data.link, data.name);
-  } )
-  const cardElement = card.createCard();
+// const createCard = (data) => {
+//   const card = new Card(data, "#card__template", () => {
+//     imageModal.open(data.link, data.name);
+//   } )
+//   const cardElement = card.createCard();
 
-  return cardElement;
-};
+//   return cardElement;
+// };
 
 function toggleLikeButton(e) {
   const activLikeButton = e.target;
