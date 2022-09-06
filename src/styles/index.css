@@ -2,18 +2,18 @@
 
 @import "../../vendor/fonts/fonts.css";
 
-@import "../../blocks/page.css";
+@import "../blocks/page.css";
 
-@import "../../blocks/footer.css";
+@import "../blocks/footer.css";
 
-@import "../../blocks/header.css";
+@import "../blocks/header.css";
 
-@import "../../blocks/profile.css";
+@import "../blocks/profile.css";
 
-@import "../../blocks/element.css";
+@import "../blocks/element.css";
 
-@import "../../blocks/popup.css";
+@import "../blocks/popup.css";
 
-@import "../../blocks/body.css";
+@import "../blocks/body.css";
 
-@import "../../blocks/card.css";
+@import "../blocks/card.css";
