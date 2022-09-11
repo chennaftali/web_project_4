@@ -1,5 +1,5 @@
  
-import './styles/index.css'
+import './index.css'
 import {Card} from '../script/Card.js'
 
 import { FormValidator } from "../script/FormValidator.js";
@@ -8,32 +8,32 @@ import { PopupWithForm } from "../script/PopupWithForm.js";
 import { UserInfo } from "../script/UserInfo.js";
 import { Section } from "../script/Section.js";
 
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
+// const initialCards = [
+//   {
+//     name: "Yosemite Valley",
+//     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+//   },
+//   {
+//     name: "Lake Louise",
+//     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
+//   },
+//   {
+//     name: "Bald Mountains",
+//     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
+//   },
+//   {
+//     name: "Latemar",
+//     link: "https://code.s3.yandex.net/web-code/latemar.jpg",
+//   },
+//   {
+//     name: "Vanoise National Park",
+//     link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
+//   },
+//   {
+//     name: "Lago di Braies",
+//     link: "https://code.s3.yandex.net/web-code/lago.jpg",
+//   },
+// ];
 
 const elementList = document.querySelector(".element__list");
 
@@ -80,13 +80,13 @@ import {
   closePopupOnEsc,
   closePopupOverlay,
 } from "../script/utils.js";
-const setting = {
-  inputSelector: ".popup__content",
-  submitButtonSelector: ".popup__save",
-  inactiveButtonClass: "popup__save_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
+// const setting = {
+//   inputSelector: ".popup__content",
+//   submitButtonSelector: ".popup__save",
+//   inactiveButtonClass: "popup__save_disabled",
+//   inputErrorClass: "popup__input_type_error",
+//   errorClass: "popup__error_visible",
+// };
 
 const addCardForm = document.querySelector(".popup__form_type-add");
 const editProfileForm = document.querySelector(".popup__form_type-profile");
