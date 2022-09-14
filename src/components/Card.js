@@ -1,4 +1,4 @@
-import { openPopup } from "./utils.js";
+// import { openPopup } from "./utils.js";
 
 const previewImage = document.querySelector(".popup__img-preview");
 const previewImageTitle = document.querySelector(".popup__header-img");
