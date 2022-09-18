@@ -30,6 +30,7 @@ addCardButton,
 closeAddPopupButton,
 profileName,
 profileOccupation,
+initialCards,
 } from "../utils/constants.js"
 // const initialCards = [
 //   {
@@ -105,7 +106,7 @@ addCardModal.setEventListeners();
 //   closePopupOnEsc,
 //   closePopupOverlay,
 // } from "../script/utils.js";
-import { from } from 'core-js/core/array';
+//import { from } from 'core-js/core/array';
 // const setting = {
 //   inputSelector: ".popup__content",
 //   submitButtonSelector: ".popup__save",
