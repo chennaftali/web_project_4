@@ -1,6 +1,5 @@
- 
-import './index.css'
-import {Card} from '../components/Card.js'
+import "./index.css";
+import { Card } from "../components/Card.js";
 
 import { FormValidator } from "../components/FormValidator.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
@@ -12,26 +11,26 @@ import { Popup } from "../components/Popup.js";
 import {
   setting,
   elementList,
-addCardForm,
-editProfileForm,
-editProfilePopup,
-addCardPopup,
-imagePopup,
-formProfile,
-inputName,
-inputOccupation,
-formAdd,
-addTitleInput,
-addImageInput,
-openProfilePopupButton,
-closeProfilePopupButton,
-closeImagePopup,
-addCardButton,
-closeAddPopupButton,
-profileName,
-profileOccupation,
-initialCards,
-} from "../utils/constants.js"
+  addCardForm,
+  editProfileForm,
+  editProfilePopup,
+  addCardPopup,
+  imagePopup,
+  formProfile,
+  inputName,
+  inputOccupation,
+  formAdd,
+  addTitleInput,
+  addImageInput,
+  openProfilePopupButton,
+  closeProfilePopupButton,
+  closeImagePopup,
+  addCardButton,
+  closeAddPopupButton,
+  profileName,
+  profileOccupation,
+  initialCards,
+} from "../utils/constants.js";
 // const initialCards = [
 //   {
 //     name: "Yosemite Valley",
@@ -61,43 +60,49 @@ initialCards,
 
 // const elementList = document.querySelector(".element__list");
 
-const popup = new Popup ()
+const popup = new Popup();
 
 const createCard = (data) => {
   const card = new Card(data, "#card__template", () => {
     imageModal.popup.open(data.link, data.name);
-  } )
+  });
   const cardElement = card.createCard();
 
   return cardElement;
 };
 
-const section = new Section({
-  items:[initialCards],
-  renderer: (data) => { createCard(data) }
-}, elementList)
-section.render()
+const section = new Section(
+  {
+    items: [initialCards],
+    renderer: (data) => {
+      createCard(data);
+    },
+  },
+  elementList
+);
+section.render();
 
-// const userInfo = new UserInfo({
-//   profileNameSelector: ".profile__name", profileJobSelector: ".profile__explorer",
-// })
-const imageModal = new PopupWithImage(".popup_type_image-preview")
+const userInfo = new UserInfo({
+  profileNameSelector: ".profile__name",
+  profileJobSelector: ".profile__explorer",
+});
+const imageModal = new PopupWithImage(".popup_type_image-preview");
 imageModal.setEventListeners();
 
- const editModal = new PopupWithForm(".popup_type-edit", (data) => {
+const editModal = new PopupWithForm(".popup_type-edit", (data) => {
+  userInfo.setUserInfo(data);
+});
+editModal.setEventListeners();
 
- userInfo.setUserInfo(data)
-})
- editModal.setEventListeners();
-
- const addCardModal = new PopupWithForm(".popup_type_add-card",  (data) => {
-   const card = {       //add card
-     name: data.placeName,
-     link: data.link
-   };
-   renderCard(card);
+const addCardModal = new PopupWithForm(".popup_type_add-card", (data) => {
+  const card = {
+    //add card
+    name: data.placeName,
+    link: data.link,
+  };
+  renderCard(card);
   //console.log("data", data)
- })
+});
 addCardModal.setEventListeners();
 
 // import {
@@ -128,7 +133,6 @@ editProfileFormValidator.enableValidation();
 ////////////
 //Declaration//
 ////////////
-
 
 // ////////////popup//////////////
 // ///////////////////////////////
@@ -189,23 +193,27 @@ addCardButton.addEventListener("click", handleAddCardClick);
 ///////////////Event Listeners////////////////
 
 openProfilePopupButton.addEventListener("click", () => {
-  const data = userInfo.getUserInfo()
+  const data = userInfo.getUserInfo();
   editModal.popup.open();
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
-  closePopup(editProfilePopup);
+  //closePopup(editProfilePopup);
+  popup.close(editProfilePopup);
 });
 
 closeImagePopup.addEventListener("click", () => {
-  closePopup(imagePopup);
+  //closePopup(imagePopup);
+  popup.close(imagePopup);
 });
 
 closeAddPopupButton.addEventListener("click", () => {
-  closePopup(addCardPopup);
+  //closePopup(addCardPopup);
+  popup.close(addCardPopup);
 });
 
 formAdd.addEventListener("submit", function (event) {
-  closePopup(addCardPopup);
+  //closePopup(addCardPopup);
+  popup.close(addCardPopup);
   formAdd.reset();
 });
