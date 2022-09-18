@@ -74,7 +74,7 @@ const createCard = (data) => {
 
 const section = new Section({
   items:[initialCards],
-  renderer: () => { createCard() }
+  renderer: (data) => { createCard(data) }
 }, elementList)
 section.render()
 
@@ -96,7 +96,7 @@ imageModal.setEventListeners();
      link: data.link
    };
    renderCard(card);
-  console.log("data", data)
+  //console.log("data", data)
  })
 addCardModal.setEventListeners();
 
