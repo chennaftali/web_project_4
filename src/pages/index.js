@@ -60,7 +60,7 @@ import {
 
 // const elementList = document.querySelector(".element__list");
 
-const popup = new Popup();
+const popup = new Popup(".popup popup_type_add-card");
 
 const createCard = (data) => {
   const card = new Card(data, "#card__template", () => {
@@ -71,13 +71,19 @@ const createCard = (data) => {
   return cardElement;
 };
 
+const renderCard = (card) => {
+  const item = createCard(card);
+  elementList.prepend(item);
+};
 const section = new Section(
   {
-    items: [initialCards],
-    renderer: (data) => {
-      createCard(data);
+    // items: [initialCards],
+    // renderer: (data) => {
+      // 
+      renderCard,
+      elementList
     },
-  },
+ // },
   elementList
 );
 section.render();
@@ -100,7 +106,7 @@ const addCardModal = new PopupWithForm(".popup_type_add-card", (data) => {
     name: data.placeName,
     link: data.link,
   };
-  renderCard(card);
+  section.render(card);
   //console.log("data", data)
 });
 addCardModal.setEventListeners();
@@ -128,7 +134,9 @@ const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
-
+initialCards.forEach((card)=>{
+  section.render(card)
+})
 ////////////
 ////////////
 //Declaration//
@@ -175,10 +183,6 @@ function toggleLikeButton(e) {
   const activLikeButton = e.target;
   activLikeButton.classList.toggle("card__button_type_active");
 }
-const renderCard = (card) => {
-  const item = createCard(card);
-  elementList.prepend(item);
-};
 
 initialCards.forEach(renderCard);
 
