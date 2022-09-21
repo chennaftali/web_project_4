@@ -1,5 +1,6 @@
 export class Section {
     constructor( renderer , containerSelector) {
+
         this._renderer = renderer;
     }
 

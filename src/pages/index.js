@@ -76,17 +76,9 @@ const renderCard = (card) => {
   elementList.prepend(item);
 };
 const section = new Section(
-  {
-    // items: [initialCards],
-    // renderer: (data) => {
-      // 
-      renderCard,
+        renderCard,
       elementList
-    },
- // },
-  elementList
-);
-section.render();
+    );
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name",
