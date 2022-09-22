@@ -64,7 +64,7 @@ const popup = new Popup(".popup popup_type_add-card");
 
 const createCard = (data) => {
   const card = new Card(data, "#card__template", () => {
-    imageModal.popup.open(data.link, data.name);
+    imageModal.open(data.link, data.name);
   });
   const cardElement = card.createCard();
 
@@ -190,7 +190,7 @@ addCardButton.addEventListener("click", handleAddCardClick);
 
 openProfilePopupButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
-  editModal.popup.open();
+  editModal.open();
 });
 
 closeProfilePopupButton.addEventListener("click", () => {
