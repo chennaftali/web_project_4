@@ -95,7 +95,7 @@ function toggleLikeButton(e) {
   activLikeButton.classList.toggle("card__button_type_active");
 }
 
-//initialCards.forEach(renderCard);
+initialCards.forEach(renderCard);
 
 /////////add-card-function////////////////////////////////
 function handleAddCardClick() {
@@ -108,5 +108,7 @@ addCardButton.addEventListener("click", handleAddCardClick);
 
 openProfilePopupButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
+  inputName.value = 
+  inputOccupation.value =
   editModal.open();
 });
