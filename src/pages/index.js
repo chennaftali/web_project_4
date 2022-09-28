@@ -193,23 +193,23 @@ openProfilePopupButton.addEventListener("click", () => {
   editModal.open();
 });
 
-closeProfilePopupButton.addEventListener("click", () => {
-  //closePopup(editProfilePopup);
-  popup.close(editProfilePopup);
-});
+// closeProfilePopupButton.addEventListener("click", () => {
+//   //closePopup(editProfilePopup);
+//   popup.close(editProfilePopup);
+// });
 
-closeImagePopup.addEventListener("click", () => {
-  //closePopup(imagePopup);
-  popup.close(imagePopup);
-});
+// closeImagePopup.addEventListener("click", () => {
+//   //closePopup(imagePopup);
+//   popup.close(imagePopup);
+// });
 
-closeAddPopupButton.addEventListener("click", () => {
-  //closePopup(addCardPopup);
-  popup.close(addCardPopup);
-});
+// closeAddPopupButton.addEventListener("click", () => {
+//   //closePopup(addCardPopup);
+//   popup.close(addCardPopup);
+// });
 
-formAdd.addEventListener("submit", function (event) {
-  //closePopup(addCardPopup);
-  popup.close(addCardPopup);
-  formAdd.reset();
-});
+// formAdd.addEventListener("submit", function (event) {
+//   //closePopup(addCardPopup);
+//   popup.close(addCardPopup);
+//   formAdd.reset();
+// });
