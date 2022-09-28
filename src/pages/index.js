@@ -31,34 +31,6 @@ import {
   profileOccupation,
   initialCards,
 } from "../utils/constants.js";
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://code.s3.yandex.net/web-code/lago.jpg",
-//   },
-// ];
-
-// const elementList = document.querySelector(".element__list");
 
 const popup = new Popup(".popup popup_type_add-card");
 
@@ -94,32 +66,12 @@ editModal.setEventListeners();
 
 const addCardModal = new PopupWithForm(".popup_type_add-card", (data) => {
   const card = {
-    //add card
     name: data.placeName,
     link: data.link,
   };
   section.render(card);
-  //console.log("data", data)
 });
 addCardModal.setEventListeners();
-
-// import {
-//   openPopup,
-//   closePopup,
-//   closePopupOnEsc,
-//   closePopupOverlay,
-// } from "../script/utils.js";
-//import { from } from 'core-js/core/array';
-// const setting = {
-//   inputSelector: ".popup__content",
-//   submitButtonSelector: ".popup__save",
-//   inactiveButtonClass: "popup__save_disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible",
-// };
-
-// const addCardForm = document.querySelector(".popup__form_type-add");
-// const editProfileForm = document.querySelector(".popup__form_type-profile");
 
 const addCardFormValidator = new FormValidator(setting, addCardForm);
 const editProfileFormValidator = new FormValidator(setting, editProfileForm);
@@ -129,44 +81,11 @@ editProfileFormValidator.enableValidation();
 initialCards.forEach((card)=>{
   section.render(card)
 })
-////////////
-////////////
-//Declaration//
-////////////
-
-// ////////////popup//////////////
-// ///////////////////////////////
-// const editProfilePopup = document.querySelector(".popup_type-edit");
-// const addCardPopup = document.querySelector(".popup_type_add-card");
-// const imagePopup = document.querySelector(".popup_type_image-preview");
-// ///////////Forms//////////////
-// const formProfile = document.querySelector(".popup__form_type-profile");
-// const inputName = document.querySelector(".popup__content_type_name");
-// const inputOccupation = document.querySelector(".popup__content_type_about-me");
-
-// const formAdd = document.querySelector(".popup__form_type-add");
-// const addTitleInput = document.querySelector(".popup__content_type_img-title");
-// const addImageInput = document.querySelector(".popup__content_type_img-link");
-// //////////Buttons/////////////
-
-// const openProfilePopupButton = document.querySelector(".profile__edit-button");
-// const closeProfilePopupButton = document.querySelector(
-//   ".popup__close_type-proile"
-// );
-// const closeImagePopup = document.querySelector(
-//   ".popup__close_type_image-preview"
-// );
-// const addCardButton = document.querySelector(".profile__add-button");
-// const closeAddPopupButton = document.querySelector(".popup__close_type_add");
-// /////////others DOM element/////////////
-// const profileName = document.querySelector(".profile__name");
-// const profileOccupation = document.querySelector(".profile__explorer");
 
 /////////////////Function/////////////////////
 function openEditProfilePopup() {
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
-  //openPopup(editProfilePopup);
   popup.open(editProfilePopup);
   editProfileFormValidator.toggleButtonState();
 }
@@ -180,8 +99,7 @@ initialCards.forEach(renderCard);
 
 /////////add-card-function////////////////////////////////
 function handleAddCardClick() {
-  //openPopup(addCardPopup);
-  popup.open(addCardPopup);
+  addCardModal.open(addCardPopup);
   addCardFormValidator.disableButton();
 }
 addCardButton.addEventListener("click", handleAddCardClick);
@@ -192,24 +110,3 @@ openProfilePopupButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
   editModal.open();
 });
-
-// closeProfilePopupButton.addEventListener("click", () => {
-//   //closePopup(editProfilePopup);
-//   popup.close(editProfilePopup);
-// });
-
-// closeImagePopup.addEventListener("click", () => {
-//   //closePopup(imagePopup);
-//   popup.close(imagePopup);
-// });
-
-// closeAddPopupButton.addEventListener("click", () => {
-//   //closePopup(addCardPopup);
-//   popup.close(addCardPopup);
-// });
-
-// formAdd.addEventListener("submit", function (event) {
-//   //closePopup(addCardPopup);
-//   popup.close(addCardPopup);
-//   formAdd.reset();
-// });
