@@ -35,6 +35,11 @@ export class Card {
     this._cardElement.remove();
   };
 
+  _setEventListeners() {
+    likeButton.addEventListener("click", this._toggleLikeButton);
+    deleteButton.addEventListener("click", this._handleDelete);
+    cardImage.addEventListener("click", this._handleCardClick);
+  }
   createCard() {
     this._cardElement = this._getElement();
 
@@ -51,10 +56,7 @@ export class Card {
     cardImage.alt = `photo of ${this._name}`;
     cardTitle.textContent = this._name;
 
-    likeButton.addEventListener("click", this._toggleLikeButton);
-    deleteButton.addEventListener("click", this._handleDelete);
-    //cardImage.addEventListener("click", this._handleIamgeClick);
-    cardImage.addEventListener("click", this._handleCardClick);
+    this._setEventListeners();
 
     return this._cardElement;
   }

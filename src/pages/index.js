@@ -46,6 +46,7 @@ const createCard = (data) => {
 const renderCard = (card) => {
   const item = createCard(card);
   //elementList.prepend(item);
+  return item;
 };
 const section = new Section(
         renderCard,
@@ -79,7 +80,7 @@ const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
 initialCards.forEach((card)=>{
-  section.render(card)
+  section.addItem(card)
 })
 
 /////////////////Function/////////////////////
@@ -108,7 +109,7 @@ addCardButton.addEventListener("click", handleAddCardClick);
 
 openProfilePopupButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
-  inputName.value = 
-  inputOccupation.value =
+  inputName.value = data.name;
+  inputOccupation.value = data.job;
   editModal.open();
 });
