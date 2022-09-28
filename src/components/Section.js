@@ -9,10 +9,11 @@ export class Section {
         this._container.prepend(card);
       }
     render(data) {
-        // this._items.forEach(data => {
-        //     this._renderer(data)
-        // })
         this._renderer(data)
     }
+    
+    renderCard(item) {
+        this._renderer(item);
+      }
 }
 

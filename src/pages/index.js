@@ -45,7 +45,7 @@ const createCard = (data) => {
 
 const renderCard = (card) => {
   const item = createCard(card);
-  elementList.prepend(item);
+  //elementList.prepend(item);
 };
 const section = new Section(
         renderCard,
@@ -95,7 +95,7 @@ function toggleLikeButton(e) {
   activLikeButton.classList.toggle("card__button_type_active");
 }
 
-initialCards.forEach(renderCard);
+//initialCards.forEach(renderCard);
 
 /////////add-card-function////////////////////////////////
 function handleAddCardClick() {
