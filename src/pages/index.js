@@ -109,7 +109,13 @@ addCardButton.addEventListener("click", handleAddCardClick);
 
 openProfilePopupButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
-  inputName.value = data.name;
-  inputOccupation.value = data.job;
+  // console.log(inputName)
+  // console.log(inputOccupation)
+  // inputName.value = data.name;
+  // inputOccupation.value = data.job;
   editModal.open();
 });
+
+this.openEditProfilePopup.addEventListener("click", () => {
+  editModal.open();
+})
