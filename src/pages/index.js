@@ -116,6 +116,4 @@ openProfilePopupButton.addEventListener("click", () => {
   editModal.open();
 });
 
-this.openEditProfilePopup.addEventListener("click", () => {
-  editModal.open();
-})
+openProfilePopupButton.addEventListener('click', openEditProfilePopup)
