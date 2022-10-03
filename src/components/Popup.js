@@ -3,8 +3,8 @@ export class Popup {
         this._popup = document.querySelector(popupSelector);
     }
 
-    open () {
-         this._popup.classList.add("popup_open");
+    open() {
+        this._popup.classList.add("popup_open");
         document.addEventListener("mousedown", this._handleOverlayClose);
         document.addEventListener("keydown", this._handleEscClose);
     }

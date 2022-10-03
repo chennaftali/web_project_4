@@ -44,7 +44,7 @@ export const imagePopup = document.querySelector(".popup_type_image-preview");
 ///////////Forms//////////////
 export const formProfile = document.querySelector(".popup__form_type-profile");
 export const inputName = document.querySelector(".popup__content_type_name");
-export const inputOccupation = document.querySelector(".popup__content_type_about-me");
+export const inputOccupation = document.querySelector(".popup__content_type_aboutMe");
 
 export const formAdd = document.querySelector(".popup__form_type-add");
 export const addTitleInput = document.querySelector(".popup__content_type_img-title");
