@@ -47,10 +47,7 @@ const renderCard = (card) => {
   const item = createCard(card);
   return item;
 };
-const section = new Section(
-        renderCard,
-      elementList
-    );
+const section = new Section(renderCard, elementList);
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name",
@@ -78,9 +75,9 @@ const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
-initialCards.forEach((card)=>{
-  section.addItem(card)
-})
+initialCards.forEach((card) => {
+  section.addItem(card);
+});
 
 /////////////////Function/////////////////////
 function openEditProfilePopup() {
@@ -111,4 +108,4 @@ openProfilePopupButton.addEventListener("click", () => {
   editModal.open();
 });
 
-openProfilePopupButton.addEventListener('click', open.EditProfilePopup)
+openProfilePopupButton.addEventListener("click", open.EditProfilePopup);
