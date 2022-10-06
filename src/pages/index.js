@@ -45,7 +45,6 @@ const createCard = (data) => {
 
 const renderCard = (card) => {
   const item = createCard(card);
-  //elementList.prepend(item);
   return item;
 };
 const section = new Section(
@@ -70,7 +69,7 @@ const addCardModal = new PopupWithForm(".popup_type_add-card", (data) => {
     name: data.placeName,
     link: data.link,
   };
-  section.render(card);
+  section.addItem(card);
 });
 addCardModal.setEventListeners();
 
@@ -109,10 +108,6 @@ addCardButton.addEventListener("click", handleAddCardClick);
 
 openProfilePopupButton.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
-  // console.log(inputName)
-  // console.log(inputOccupation)
-  // inputName.value = data.name;
-  // inputOccupation.value = data.job;
   editModal.open();
 });
 
