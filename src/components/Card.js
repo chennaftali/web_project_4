@@ -1,14 +1,12 @@
-// import { openPopup } from "./utils.js";
-
 const previewImage = document.querySelector(".popup__img-preview");
 const previewImageTitle = document.querySelector(".popup__header-img");
 const imagePopup = document.querySelector(".popup_type_image-preview");
 
 export class Card {
-    constructor(data, templateCardSelector, handleCardClick) {
+  constructor(data, templateCardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
-    
+
     this._handleCardClick = handleCardClick;
     this._templateCardSelector = templateCardSelector;
   }
