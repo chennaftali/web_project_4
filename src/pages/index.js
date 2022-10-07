@@ -15,8 +15,6 @@ import {
   editProfileForm,
   editProfilePopup,
   addCardPopup,
-  imagePopup,
-  formProfile,
   inputName,
   inputOccupation,
   formAdd,
@@ -24,7 +22,6 @@ import {
   addImageInput,
   openProfilePopupButton,
   closeProfilePopupButton,
-  closeImagePopup,
   addCardButton,
   closeAddPopupButton,
   profileName,
@@ -47,7 +44,7 @@ const renderCard = (card) => {
   const item = createCard(card);
   return item;
 };
-const section = new Section(renderCard, elementList);
+const section = new Section(createCard, elementList);
 
 const userInfo = new UserInfo({
   profileNameSelector: ".profile__name",
@@ -75,9 +72,9 @@ const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
-initialCards.forEach((card) => {
-  section.addItem(card);
-});
+// initialCards.forEach((card) => {
+//   section.addItem(card);
+// });
 
 /////////////////Function/////////////////////
 function openEditProfilePopup() {

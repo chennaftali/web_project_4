@@ -1,7 +1,3 @@
-const previewImage = document.querySelector(".popup__img-preview");
-const previewImageTitle = document.querySelector(".popup__header-img");
-const imagePopup = document.querySelector(".popup_type_image-preview");
-
 export class Card {
   constructor(data, templateCardSelector, handleCardClick) {
     this._name = data.name;
@@ -11,12 +7,6 @@ export class Card {
     this._templateCardSelector = templateCardSelector;
   }
 
-  // _handleIamgeClick = () => {
-  //   previewImage.src = this._link;
-  //   previewImage.alt = `photo of ${this._name}`;
-  //   previewImageTitle.textContent = this._name;
-  //   openPopup(imagePopup);
-  // };
   _getElement = () => {
     return document
       .querySelector(this._templateCardSelector)
