@@ -29,7 +29,7 @@ import {
   initialCards,
 } from "../utils/constants.js";
 
-const popup = new Popup(".popup popup_type_add-card");
+//const popup = new Popup(".popup popup_type_add-card");
 
 const createCard = (data) => {
   const card = new Card(data, "#card__template", () => {
@@ -72,6 +72,7 @@ const editProfileFormValidator = new FormValidator(setting, editProfileForm);
 
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
+section.renderItems()
 // initialCards.forEach((card) => {
 //   section.addItem(card);
 // });
